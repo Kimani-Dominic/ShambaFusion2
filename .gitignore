@@ -1,0 +1,79 @@
+# Frontend (shamba-frontend) specific ignores
+
+shamba-frontend/node_modules/
+shamba-frontend/.pnp
+shamba-frontend/.pnp.js
+
+# Production build for frontend
+shamba-frontend/build/
+
+# Logs for frontend
+shamba-frontend/npm-debug.log*
+shamba-frontend/yarn-debug.log*
+shamba-frontend/yarn-error.log*
+
+# Backend (ShambaFusion) specific ignores
+
+# Python
+ShambaFusion/*.py[cod]
+ShambaFusion/__pycache__/
+ShambaFusion/*.so
+ShambaFusion/*.egg
+ShambaFusion/*.egg-info/
+ShambaFusion/dist/
+ShambaFusion/build/
+ShambaFusion/*.pyo
+ShambaFusion/*.pyd
+ShambaFusion/*.pyc
+
+# Django specific
+ShambaFusion/*.log
+ShambaFusion/*.pot
+ShambaFusion/*.pyc
+ShambaFusion/*.pyo
+ShambaFusion/*.pyd
+ShambaFusion/*.sqlite3
+ShambaFusion/db.sqlite3
+ShambaFusion/media/
+ShambaFusion/staticfiles/
+
+# Jupyter Notebook (if applicable)
+ShambaFusion/.ipynb_checkpoints/
+
+# macOS files
+.DS_Store
+
+# Environment and IDE files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.vscode/
+
+# Virtual environments
+ShambaFusion/venv/
+ShambaFusion/env/
+ShambaFusion/ENV/
+ShambaFusion/env.bak/
+ShambaFusion/venv.bak/
+
+# Coverage reports
+ShambaFusion/htmlcov/
+ShambaFusion/.tox/
+ShambaFusion/.coverage
+ShambaFusion/.coverage.*
+ShambaFusion/.cache
+ShambaFusion/nosetests.xml
+ShambaFusion/coverage.xml
+ShambaFusion/*.cover
+ShambaFusion/.hypothesis/
+
+# pyenv
+ShambaFusion/.python-version
+
+# MySQL / Postgres dumps
+ShambaFusion/*.sql
+
+# Django collectstatic
+ShambaFusion/staticfiles/
