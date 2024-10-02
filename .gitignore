@@ -1,44 +1,44 @@
-# Frontend (shamba-frontend) specific ignores
+# Frontend () specific ignores
 
-shamba-frontend/node_modules/
-shamba-frontend/.pnp
-shamba-frontend/.pnp.js
+/node_modules/
+/.pnp
+/.pnp.js
 
 # Production build for frontend
-shamba-frontend/build/
+/build/
 
 # Logs for frontend
-shamba-frontend/npm-debug.log*
-shamba-frontend/yarn-debug.log*
-shamba-frontend/yarn-error.log*
+/npm-debug.log*
+/yarn-debug.log*
+/yarn-error.log*
 
-# Backend (ShambaFusion) specific ignores
+# Backend () specific ignores
 
 # Python
-ShambaFusion/*.py[cod]
-ShambaFusion/__pycache__/
-ShambaFusion/*.so
-ShambaFusion/*.egg
-ShambaFusion/*.egg-info/
-ShambaFusion/dist/
-ShambaFusion/build/
-ShambaFusion/*.pyo
-ShambaFusion/*.pyd
-ShambaFusion/*.pyc
+/*.py[cod]
+/__pycache__/
+/*.so
+/*.egg
+/*.egg-info/
+/dist/
+/build/
+/*.pyo
+/*.pyd
+/*.pyc
 
 # Django specific
-ShambaFusion/*.log
-ShambaFusion/*.pot
-ShambaFusion/*.pyc
-ShambaFusion/*.pyo
-ShambaFusion/*.pyd
-ShambaFusion/*.sqlite3
-ShambaFusion/db.sqlite3
-ShambaFusion/media/
-ShambaFusion/staticfiles/
+/*.log
+/*.pot
+/*.pyc
+/*.pyo
+/*.pyd
+/*.sqlite3
+/db.sqlite3
+/media/
+/staticfiles/
 
 # Jupyter Notebook (if applicable)
-ShambaFusion/.ipynb_checkpoints/
+/.ipynb_checkpoints/
 
 # macOS files
 .DS_Store
@@ -52,28 +52,29 @@ ShambaFusion/.ipynb_checkpoints/
 .vscode/
 
 # Virtual environments
-ShambaFusion/venv/
-ShambaFusion/env/
-ShambaFusion/ENV/
-ShambaFusion/env.bak/
-ShambaFusion/venv.bak/
+/venv/
+/env/
+/ENV/
+/env.bak/
+/venv.bak/
 
 # Coverage reports
-ShambaFusion/htmlcov/
-ShambaFusion/.tox/
-ShambaFusion/.coverage
-ShambaFusion/.coverage.*
-ShambaFusion/.cache
-ShambaFusion/nosetests.xml
-ShambaFusion/coverage.xml
-ShambaFusion/*.cover
-ShambaFusion/.hypothesis/
+/htmlcov/
+/.tox/
+/.coverage
+/.coverage.*
+/.cache
+/nosetests.xml
+/coverage.xml
+/*.cover
+/.hypothesis/
 
 # pyenv
-ShambaFusion/.python-version
+/.python-version
 
 # MySQL / Postgres dumps
-ShambaFusion/*.sql
+/*.sql
 
 # Django collectstatic
-ShambaFusion/staticfiles/
+/staticfiles/
+node_modules
