@@ -34,6 +34,6 @@ Make sure you have Node.js installed on your machine. You can download it [here]
     ```bash
     npm install
 
-4. **Launch the app in dev mode
+4. **Launch the app in dev mode**
     ```bash
     npm run dev
