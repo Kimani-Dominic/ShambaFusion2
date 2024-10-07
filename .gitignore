@@ -78,3 +78,5 @@
 # Django collectstatic
 /staticfiles/
 node_modules
+
+Untitled-1.html
