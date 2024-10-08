@@ -9,7 +9,7 @@ function Login() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
 
         if(empty(email) || empty(password)) {
@@ -17,7 +17,7 @@ function Login() {
             return
         }
 
-        setError('');
+        setError(null);
         //API call for authentication.
     }
 
