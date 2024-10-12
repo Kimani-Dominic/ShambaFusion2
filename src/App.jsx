@@ -9,6 +9,7 @@ import About from './pages/about/About';
 import Dashboard from './pages/account/Dashboard';
 import Market from './pages/marketplace/Market';
 import Contact from './pages/contact/Contact';
+import Role from './components/Roles';
 
 function App() {
 
@@ -33,7 +34,8 @@ function App() {
 
               <Route path='/market' element={<Market />} />
 
-              
+              {/* <Route path='/role' element={<Role />} /> */}
+
             </Routes>
           </div>
       </Router>
