@@ -20,7 +20,7 @@ function Header() {
                     <Link to="/market" className="hover:text-gray-300">Market</Link>
                     <Link to="/about" className="hover:text-gray-300">About</Link>
                     <Link to="/contact" className="hover:text-gray-300">Contact</Link>
-                    <Link to="/account" className="hover:text-gray-300">Account</Link>
+                    <Link to="/admin-panel" className="hover:text-gray-300">Account</Link>
                 </nav>
             </div>
         </header>

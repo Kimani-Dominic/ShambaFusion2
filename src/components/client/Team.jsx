@@ -1,6 +1,6 @@
 // src/components/Team.jsx
 import React from 'react';
-import teamMembers from '../data/team.js';
+import teamMembers from '../../data/team.js';
 
 function Team(){
 

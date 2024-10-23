@@ -1,6 +1,6 @@
 // src/components/FAQ.jsx
 import React, { useState } from 'react';
-import faqs from '../data/faq.js';
+import faqs from '../../data/faq.js';
 
 const FAQItem = ({ question, answer }) => {
     const [isOpen, setIsOpen] = useState(false);

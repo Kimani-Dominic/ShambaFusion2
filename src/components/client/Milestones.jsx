@@ -1,6 +1,6 @@
 // src/components/Milestones.jsx
 
-import milestones from '../data/milestones.js';
+import milestones from '../../data/milestones.js';
 
 import React from 'react';
 

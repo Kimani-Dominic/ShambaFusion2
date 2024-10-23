@@ -4,13 +4,13 @@ import Footer from "../../layout/Footer.jsx";
 import Hero from "../../components/shared/Hero";
 import Header from "../../layout/Header";
 import StoryImage from "../../assets/about.jpg";
-import Story from "../../components/Story";
-import Corevalues from '../../components/Corevalues.jsx';
-import HowItWorks from '../../components/HowItWorks.jsx';
-import Team from '../../components/Team.jsx';
-import Impact from '../../components/CommunityImpact.jsx';
-import Milestones from '../../components/Milestones.jsx';
-import Vision from '../../components/Vision.jsx';
+import Story from "../../components/client/Story";
+import Corevalues from '../../components/client/Corevalues.jsx';
+import HowItWorks from '../../components/client/HowItWorks.jsx';
+import Team from '../../components/client/Team.jsx';
+import Impact from '../../components/client/CommunityImpact.jsx';
+import Milestones from '../../components/client/Milestones.jsx';
+import Vision from '../../components/client/Vision.jsx';
 
 function About() {
     return (

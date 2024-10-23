@@ -3,10 +3,10 @@ import Hero from '../../components/shared/Hero';
 import Header from '.././../layout/Header';
 import Footer from '.././../layout/Footer';
 import ContactImage from '../../assets/contact.jpg';
-import ContactForm from '../../components/ContactForm';
-import CustomerSupport from '../../components/CustomerSupport';
-import FAQ from '../../components/FAQ';
-import ServiceHours from '../../components/ServiceHours';
+import ContactForm from '../../components/client/ContactForm';
+import CustomerSupport from '../../components/client/CustomerSupport';
+import FAQ from '../../components/client/FAQ';
+import ServiceHours from '../../components/client/ServiceHours';
 
 function Contact() {
     return (
