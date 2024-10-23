@@ -9,7 +9,7 @@ export function useRole () {
 }
 
 export function RoleProvider({children}) {
-    const [role, setRole] = useState('buyer');
+    const [role, setRole] = useState('vendor');
 
     const changeRole = (newRole) => {
         setRole(newRole);

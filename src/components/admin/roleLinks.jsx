@@ -10,6 +10,7 @@ import ReviewsFeedbacks from "./SellerReviews";
 import MarketingTools from "./SellerMarketingTools";
 import Logistics from "./SellerLogisticsManagement";
 import Analytics from "./SellerAnalytics";
+import Shipment from "./VendorShipmentManagement";
 
 const roleLinks = {
     seller: [
@@ -34,7 +35,7 @@ const roleLinks = {
       vendor: [
         { name: 'Dashboard', path: 'dashboard', element: <Dashboard /> },
         { name: 'Manage Logistics', path: 'logistics', element: <Logistics /> },
-        { name: 'View Shipments', path: 'shipments', element: 'Shipments' },
+        { name: 'View Shipments', path: 'shipments', element: <Shipment /> },
         { name: 'Payments', path: 'payments', element: <PaymentManagement /> },
         { name: 'Profile Settings', path: 'profile-settings', element: <ProfileManagement /> },
       ],
