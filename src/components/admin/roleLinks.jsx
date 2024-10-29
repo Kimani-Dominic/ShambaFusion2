@@ -11,6 +11,7 @@ import MarketingTools from "./SellerMarketingTools";
 import Logistics from "./SellerLogisticsManagement";
 import Analytics from "./SellerAnalytics";
 import Shipment from "./VendorShipmentManagement";
+import AIInsights from "./AI-Insights";
 
 const roleLinks = {
     seller: [
@@ -18,7 +19,8 @@ const roleLinks = {
         { name: 'Manage Products', path: 'products', element: <ProductManagement /> },
         { name: 'Orders', path: 'orders', element: <SellerOrderManagement /> },
         { name: 'Analytics', path: 'analytics', element: <Analytics /> },
-        { name: 'Payments', path: 'payments', element: <PaymentManagement /> },
+        {name: 'AI Insights', path: 'ai-insights', element: <AIInsights /> },
+        {name: 'Payments', path: 'payments', element: <PaymentManagement /> },
         { name: 'Reviews and Feedback', path: 'reviews', element: <ReviewsFeedbacks /> },
         { name: 'Marketing Tools', path: 'marketing', element: <MarketingTools /> },
         { name: 'Logistics', path: 'logistics', element: <Logistics /> },
