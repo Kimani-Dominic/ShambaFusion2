@@ -5,7 +5,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Line, Bar, Pie } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { DollarSign, ShoppingBag, TrendingUp, Truck, Users, BarChart2 } from 'lucide-react';
-
 const Analytics = () => {
   const { role } = useRole();
 

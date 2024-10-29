@@ -9,9 +9,10 @@ import PaymentManagement from "./SellerPaymentManagement";
 import ReviewsFeedbacks from "./SellerReviews";
 import MarketingTools from "./SellerMarketingTools";
 import Logistics from "./SellerLogisticsManagement";
-import Analytics from "./SellerAnalytics";
+import Analytics from "./Analytics";
 import Shipment from "./VendorShipmentManagement";
 import AIInsights from "./AI-Insights";
+import PestControl from "./PestControl";
 
 const roleLinks = {
     seller: [
@@ -20,6 +21,7 @@ const roleLinks = {
         { name: 'Orders', path: 'orders', element: <SellerOrderManagement /> },
         { name: 'Analytics', path: 'analytics', element: <Analytics /> },
         {name: 'AI Insights', path: 'ai-insights', element: <AIInsights /> },
+        {name: 'Pest Control', path: 'pest-control', element: <PestControl />},
         {name: 'Payments', path: 'payments', element: <PaymentManagement /> },
         { name: 'Reviews and Feedback', path: 'reviews', element: <ReviewsFeedbacks /> },
         { name: 'Marketing Tools', path: 'marketing', element: <MarketingTools /> },
@@ -31,6 +33,7 @@ const roleLinks = {
         { name: 'Browse Products', path: '/market', element: null },
         { name: 'View Orders', path: 'orders', element: <OrderManagement /> },
         { name: 'Payments', path: 'favorites', element: <PaymentMethods /> },
+        { name: 'Analytics', path: 'analytics', element: <Analytics /> },
         { name: 'Disputes', path: 'disputes', element: <Disputes /> },
         { name: 'Profile Settings', path: 'profile-settings', element: <ProfileManagement /> },
       ],
@@ -39,6 +42,7 @@ const roleLinks = {
         { name: 'Manage Logistics', path: 'logistics', element: <Logistics /> },
         { name: 'View Shipments', path: 'shipments', element: <Shipment /> },
         { name: 'Payments', path: 'payments', element: <PaymentManagement /> },
+        { name: 'Analytics', path: 'analytics', element: <Analytics /> },
         { name: 'Profile Settings', path: 'profile-settings', element: <ProfileManagement /> },
       ],
 }

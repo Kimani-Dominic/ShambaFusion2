@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit2, Trash2, BarChart2, Package, DollarSign, ShoppingCart } from 'lucide-react';
 
+
 // Sample product data (you'd usually fetch this from an API)
 const initialProducts = [
   { id: 1, name: 'Tomatoes', price: 2.5, quantity: 100, sold: 20 },
@@ -10,7 +11,7 @@ const initialProducts = [
 
 const ProductManagement = () => {
   const [products, setProducts] = useState(initialProducts);
-  const [newProduct, setNewProduct] = useState({ name: '', price: '', quantity: '' });
+  const [newProduct, setNewProduct] = useState({ name: '', price: '', quantity: '', description: '', image: '' });
   const [editProduct, setEditProduct] = useState(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
 
@@ -103,6 +104,35 @@ const ProductManagement = () => {
                 required
                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
               />
+            </div>
+            <div>
+              <label htmlFor="description" className="block text-sm font-medium text-gray-700 mb-1">Description</label>
+              <input
+                id="description"
+                type="text"
+                name="description"
+                value={editProduct ? editProduct.description : newProduct.description}
+                onChange={editProduct ? e => setEditProduct({ ...editProduct, description: e.target.value }) : handleInputChange}
+                placeholder="Enter Description"
+                required
+                className="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              />
+
+            </div>
+
+            <div>
+              <label htmlFor="product-image" className="block text-sm font-medium text-gray-700 mb-1">Image</label>
+              <input
+                id="product-image"
+                type="file"
+                name="product-image"
+                value={editProduct ? editProduct.image : newProduct.image}
+                onChange={editProduct ? e => setEditProduct({ ...editProduct, image: e.target.value }) : handleInputChange}
+                placeholder="Enter Description"
+                required
+                className="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              />
+              
             </div>
           </div>
           <button type="submit" className="mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">
