@@ -11,7 +11,9 @@ const Signup = () => {
         last_name: "",        // Changed to match backend field
         email: "",               // Changed to match backend field
         password: "",
-        confirm_password: ""     // Changed to match backend field
+        confirm_password: "",
+        is_farmer: "",
+        is_buyer: "",   // Changed to match backend field
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -30,7 +32,7 @@ const Signup = () => {
         setIsSubmitting(true);
 
         try {
-            const response = await fetch(`${API_BASE_URL}/api/usermanagement/register/`, {
+            const response = await fetch(`${API_BASE_URL}api/register/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -141,6 +143,20 @@ const Signup = () => {
                                     value={formData.confirm_password}  // Updated to match state
                                     onChange={handleChange}
                                 />
+                            </div>
+                            <div className="flex items-center space-x-4">
+                                <label>
+                                    <input 
+                                        type="checkbox" 
+                                        value={formData.is_farmer}
+                                    /> Farmer
+                                </label>
+                                <label>
+                                    <input 
+                                        type="checkbox" 
+                                        value={formData.is_buyer}
+                                    /> Buyer
+                                </label>
                             </div>
                             {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
                             <div>
