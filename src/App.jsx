@@ -10,6 +10,11 @@ import Admin from './pages/account/Admin';
 import Market from './pages/marketplace/Market';
 import Contact from './pages/contact/Contact';
 import { RoleProvider } from './hooks/useRole';
+import DiseaseModelForm from './pages/disease/DiseaseModelForm';
+import DiseaseDetailsPage from "./pages/disease/DiseaseDetailsPage";
+import FarmInsightsComponent from './pages/farminsight/FarmInsightsComponent';
+
+
 
 function App() {
 
@@ -27,6 +32,12 @@ function App() {
               <Route path='/signup' element={<Signup />} />
 
               <Route path='/about' element={<About />} />
+
+              <Route path='/diseasemodelform' element={<DiseaseModelForm />} />
+
+              <Route path='/diseasedetails' element={<DiseaseDetailsPage />} />
+              
+              <Route path='/farminsights' element={<FarmInsightsComponent />} />
 
               <Route path='/admin-panel/*' element={<RoleProvider><Admin /></RoleProvider>} />
               
