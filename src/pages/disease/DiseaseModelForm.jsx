@@ -33,7 +33,7 @@ function Header() {
   )
 }
 
-export default function DiseaseModelForm() {
+export default async function DiseaseModelForm() {
   const [cropType, setCropType] = useState('')
   const [image, setImage] = useState(null)
   const [imagePreview, setImagePreview] = useState(null)
@@ -89,17 +89,37 @@ export default function DiseaseModelForm() {
     }
   }
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
-    // Here you would typically send the data to your backend or disease model
-    console.log({ cropType, image, symptoms, treatment })
-    // Reset form after submission
+  //   // Here you would typically send the data to your backend or disease model
+  //   console.log({ cropType, image, symptoms, treatment })
+  const formData = new FormData()
+  formData.append('crop_type', crop_type)
+  formData.append('image', image)
+  formData.append('symptoms', symptoms)
+  formData.append('treatment', treatment)
+
+  try {
+    const response = await fetch(`${API_BASE_URL}/api/diseases/new/`, {
+      method: 'POST',
+      body: formData,
+    })
+
+    if (!response.ok) {
+      throw new Error('Network response was not okay')
+    }
+
+    const data = await response.json()
+    console.log('Success:', data)
+  } catch (error) {
+    console.error('Error:', error)
+  }
     setCropType('')
     setImage(null)
     setImagePreview(null)
     setSymptoms('')
     setTreatment('')
-  }
+}
 
   return (
     <div className="min-h-screen bg-gray-100">
