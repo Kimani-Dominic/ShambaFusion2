@@ -18,31 +18,33 @@ const PestControl = () => {
 
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
-    setSelectedImage(URL.createObjectURL(file));
+    // setSelectedImage(URL.createObjectURL(file));
+    setSelectedImage(file);
   };
 
-  const analyzeImage = async () => {
-    setIsLoading(true);
-    // In a real application, this would be an API call to your AI model
-    await new Promise(resolve => setTimeout(resolve, 2000)); // Simulating API delay
-    setAnalysis({
-      disease: "Late Blight",
-      confidence: 0.92,
-      symptoms: "Dark brown spots on leaves, white fuzzy growth on undersides, rapid wilting.",
-      causes: "Caused by the oomycete pathogen Phytophthora infestans. Thrives in cool, wet conditions.",
-      recommendations: [
-        "Remove and destroy infected plant parts",
-        "Apply fungicide as a preventive measure",
-        "Improve air circulation around plants",
-        "Water at the base of plants to keep foliage dry"
-      ],
-      resources: [
-        { title: "Late Blight Management", url: "https://example.com/late-blight" },
-        { title: "Organic Control Methods", url: "https://example.com/organic-methods" }
-      ]
-    });
-    setIsLoading(false);
-  };
+  // const analyzeImage = async () => {
+  //   setIsLoading(true);
+  //   // In a real application, this would be an API call to your AI model
+  //   await new Promise(resolve => setTimeout(resolve, 2000)); // Simulating API delay
+  //   setAnalysis({
+  //     disease: "Late Blight",
+  //     confidence: 0.92,
+  //     symptoms: "Dark brown spots on leaves, white fuzzy growth on undersides, rapid wilting.",
+  //     causes: "Caused by the oomycete pathogen Phytophthora infestans. Thrives in cool, wet conditions.",
+  //     recommendations: [
+  //       "Remove and destroy infected plant parts",
+  //       "Apply fungicide as a preventive measure",
+  //       "Improve air circulation around plants",
+  //       "Water at the base of plants to keep foliage dry"
+  //     ],
+  //     resources: [
+  //       { title: "Late Blight Management", url: "https://example.com/late-blight" },
+  //       { title: "Organic Control Methods", url: "https://example.com/organic-methods" }
+  //     ]
+  //   });
+  //   setIsLoading(false);
+  // };
+
 
   const submitFeedback = () => {
     // In a real application, this would send the feedback to your server
