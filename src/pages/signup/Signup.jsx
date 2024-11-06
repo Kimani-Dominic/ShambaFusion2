@@ -12,8 +12,7 @@ const Signup = () => {
         email: "",               
         password: "",
         confirm_password: "",
-        is_farmer: false,
-        is_buyer: false,   
+        user_role: "",
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
@@ -58,12 +57,12 @@ const Signup = () => {
         }
     };
 
-    const handleChange = (event) => {
-        const { name, value, type, checked } = event.target;
-        setFormData({
-            ...formData,
-            [name]: type === 'checkbox' ? checked : value
-        });
+    const handleChange = (e) => {
+        const { name, value } = e.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value,
+        }));
     };
     
 
@@ -148,13 +147,13 @@ const Signup = () => {
                                     onChange={handleChange}
                                 />
                             </div>
-                            <div className="flex items-center space-x-4">
+                            {/* <div className="flex items-center space-x-4">
                                  <label>
                                     Farmer:
                                     <input
                                         type="checkbox"
                                         name="is_farmer"
-                                        checked={formData.is_farmer}
+                                        checked={formData.user_role}
                                         onChange={handleChange}
                                     />
                                 </label>
@@ -163,10 +162,32 @@ const Signup = () => {
                                     <input
                                         type="checkbox"
                                         name="is_buyer"
-                                        checked={formData.is_buyer}
+                                        checked={formData.user_role}
                                         onChange={handleChange}
                                     />
                                 </label>
+                                <label>
+                                    Vendor:
+                                    <input
+                                        type="checkbox"
+                                        name="is_buyer"
+                                        checked={formData.user_role}
+                                        onChange={handleChange}
+                                    />
+                                </label>
+                            </div> */}
+                            <div className="flex items-center space-x-4">
+                            <select
+                                name="user_role"
+                                value={formData.user_role}
+                                onChange={handleChange}
+                                required
+                            >
+                                <option value="">Select Role</option>
+                                <option value="seller">Farmer</option>
+                                <option value="buyer">Buyer</option>
+                                <option value="vendor">Vendor</option>
+                            </select>
                             </div>
                             {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
                             {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
