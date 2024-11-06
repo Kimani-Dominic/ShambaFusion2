@@ -76,7 +76,7 @@ const Login = () => {
                         />
                     </div>
                     <div className="flex-1 p-8">
-                        <h2 className="text-3xl font-bold text-center mb-6">Welcome back</h2>
+                        <h2 className="text-3xl font-bold text-center mb-6">Welcome back!</h2>
                         <form className="space-y-4" onSubmit={handleSubmit}>
                             <div>
                                 <input 
