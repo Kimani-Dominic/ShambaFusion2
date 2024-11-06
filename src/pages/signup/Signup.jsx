@@ -2,22 +2,23 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import SignupImage from '../../assets/signup.jpg';
 import { API_BASE_URL } from '../../apiConfig';
-import { empty } from "../../utils/empty"; // Ensure this is used or remove it if not needed
+// import { empty } from "../../utils/empty"; // Ensure this is used or remove it if not needed
 
 const Signup = () => {
     const [formData, setFormData] = useState({
         username: "",
-        first_name: "",           // Changed to match backend field
-        last_name: "",        // Changed to match backend field
-        email: "",               // Changed to match backend field
+        first_name: "",           
+        last_name: "",        
+        email: "",               
         password: "",
         confirm_password: "",
-        is_farmer: "",
-        is_buyer: "",   // Changed to match backend field
+        is_farmer: false,
+        is_buyer: false,   
     });
 
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
+    const [successMessage, setSuccessMessage] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
@@ -41,11 +42,13 @@ const Signup = () => {
             });
 
             if (response.ok) {
-                console.log("User created successfully");
+                setSuccessMessage("User created successfully! Please log in.");
+                setTimeout(() => setSuccessMessage(''), 5000);
+                // console.log("User created successfully");
                 navigate('/login');
             } else {
-                const errorData = await response.json(); // Capture error response
-                setErrorMessage(errorData.detail || "An error occurred. Please try again."); // Update error message based on response
+                const errorData = await response.json();
+                setErrorMessage(errorData.detail || "An error occurred. Please try again.");
             }
         } catch (error) {
             console.log("An error occurred while submitting data:", error);
@@ -56,12 +59,13 @@ const Signup = () => {
     };
 
     const handleChange = (event) => {
-        const { name, value } = event.target;
+        const { name, value, type, checked } = event.target;
         setFormData({
             ...formData,
-            [name]: value
+            [name]: type === 'checkbox' ? checked : value
         });
     };
+    
 
     return (
         <>
@@ -81,44 +85,44 @@ const Signup = () => {
                         <div>
                                 <input 
                                     type="text" 
-                                    name="username"  // Updated to match backend field
+                                    name="username"  
                                     placeholder="User Name" 
                                     className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
                                     required 
-                                    value={formData.username}  // Updated to match state
+                                    value={formData.username}  
                                     onChange={handleChange}
                                 />
                             </div>
                             <div>
                                 <input 
                                     type="text" 
-                                    name="first_name"  // Updated to match backend field
+                                    name="first_name"  
                                     placeholder="First Name" 
                                     className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
                                     required 
-                                    value={formData.first_name}  // Updated to match state
+                                    value={formData.first_name}  
                                     onChange={handleChange}
                                 />
                             </div>
                             <div>
                                 <input 
                                     type="text" 
-                                    name="last_name"  // Updated to match backend field
+                                    name="last_name"  
                                     placeholder="Last Name" 
                                     className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
                                     required 
-                                    value={formData.last_name}  // Updated to match state
+                                    value={formData.last_name}  
                                     onChange={handleChange}
                                 />
                             </div>
                             <div>
                                 <input 
                                     type="email" 
-                                    name="email"  // Updated to match backend field
+                                    name="email"  
                                     placeholder="Email address..." 
                                     className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
                                     required 
-                                    value={formData.email}  // Updated to match state
+                                    value={formData.email}  
                                     onChange={handleChange}
                                 />
                             </div>
@@ -129,36 +133,43 @@ const Signup = () => {
                                     placeholder="Password..." 
                                     className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
                                     required 
-                                    value={formData.password}  // Updated to match state
+                                    value={formData.password}  
                                     onChange={handleChange}
                                 />
                             </div>
                             <div>
                                 <input 
                                     type="password" 
-                                    name="confirm_password"  // Updated to match backend field
+                                    name="confirm_password"  
                                     placeholder="Confirm Password..." 
                                     className="block w-full p-2 border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm" 
                                     required 
-                                    value={formData.confirm_password}  // Updated to match state
+                                    value={formData.confirm_password}  
                                     onChange={handleChange}
                                 />
                             </div>
                             <div className="flex items-center space-x-4">
-                                <label>
-                                    <input 
-                                        type="checkbox" 
-                                        value={formData.is_farmer}
-                                    /> Farmer
+                                 <label>
+                                    Farmer:
+                                    <input
+                                        type="checkbox"
+                                        name="is_farmer"
+                                        checked={formData.is_farmer}
+                                        onChange={handleChange}
+                                    />
                                 </label>
                                 <label>
-                                    <input 
-                                        type="checkbox" 
-                                        value={formData.is_buyer}
-                                    /> Buyer
+                                    Buyer:
+                                    <input
+                                        type="checkbox"
+                                        name="is_buyer"
+                                        checked={formData.is_buyer}
+                                        onChange={handleChange}
+                                    />
                                 </label>
                             </div>
                             {errorMessage && <p className="text-red-500 text-center">{errorMessage}</p>}
+                            {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
                             <div>
                                 <button 
                                     type="submit" 

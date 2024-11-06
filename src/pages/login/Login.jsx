@@ -20,7 +20,7 @@ const Login = () => {
         setIsSubmitting(true);
         
         try {
-            const response = await fetch(`${API_BASE_URL}/api/usermanagement/login/`, {
+            const response = await fetch(`${API_BASE_URL}api/login/`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
