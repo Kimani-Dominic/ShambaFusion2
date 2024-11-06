@@ -2,8 +2,10 @@ import { Link, useNavigate } from "react-router-dom";
 import LoginImage from '../../assets/login.jpg';
 import { useState } from "react";
 import { API_BASE_URL } from '../../apiConfig';
+import { useRole } from "@/hooks/useRole";
 
 const Login = () => {
+    // const role = useRole();
     const [formData, setFormData] = useState({
         email: "",
         password: ""
@@ -39,8 +41,9 @@ const Login = () => {
                 localStorage.setItem('userId', data.user_id);
 
                 const userRole = data.user_role;
-                if (userRole === "admin" || userRole === "farmer" || userRole === 'buyer') {
-                    navigate('/');
+                if (userRole === "vendor" || userRole === "seller" || userRole === 'buyer') {
+                    // changeRole(data.user_role)
+                    navigate('/choose-role');
                 } else {
                     navigate('/admin-panel/dashboard');
                 }

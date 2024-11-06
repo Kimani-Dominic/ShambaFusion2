@@ -9,14 +9,14 @@ const Breadcrumb = ({ paths }) => {
             <ol className="flex items-center space-x-2">
                 {paths.map((path, index) => (
                     <li key={index} className="flex items-center">
-                        <a
-                            href={path.url}
+                        <span
+                            
                             className={`text-sm font-medium ${
                                 index === paths.length - 1 ? 'text-gray-500' : 'text-indigo-600'
                             } hover:underline`}
                         >
                             {path.label}
-                        </a>
+                        </span>
                         {index < paths.length - 1 && (
                             <ChevronRightIcon className="h-5 w-5 text-gray-400 mx-2" />
                         )}

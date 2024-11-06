@@ -3,13 +3,13 @@ import { createContext, useContext, useState } from "react";
 
 const RoleContext = createContext();
 
-export function useRole () {
+function useRole () {
     return useContext(RoleContext);
 
 }
 
-export function RoleProvider({children}) {
-    const [role, setRole] = useState('farmer');
+function RoleProvider({children}) {
+    const [role, setRole] = useState('seller');
 
     const changeRole = (newRole) => {
         setRole(newRole);
@@ -22,3 +22,4 @@ export function RoleProvider({children}) {
     )
 }
 
+export {useRole, RoleProvider};

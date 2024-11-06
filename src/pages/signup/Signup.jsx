@@ -45,7 +45,7 @@ const Signup = () => {
                 setSuccessMessage("User created successfully! Please log in.");
                 setTimeout(() => setSuccessMessage(''), 5000);
                 // console.log("User created successfully");
-                navigate('/login');
+                navigate('/choose-role');
             } else {
                 const errorData = await response.json();
                 setErrorMessage(errorData.detail || "An error occurred. Please try again.");
@@ -155,6 +155,7 @@ const Signup = () => {
                                         type="checkbox"
                                         name="is_farmer"
                                         checked={formData.is_farmer}
+                                        value={'seller'}
                                         onChange={handleChange}
                                     />
                                 </label>
@@ -164,6 +165,7 @@ const Signup = () => {
                                         type="checkbox"
                                         name="is_buyer"
                                         checked={formData.is_buyer}
+                                        value={'buyer'}
                                         onChange={handleChange}
                                     />
                                 </label>

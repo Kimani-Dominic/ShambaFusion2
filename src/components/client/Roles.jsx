@@ -1,11 +1,21 @@
+import { useRole } from '@/hooks/useRole';
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 
 function Role({ onSelectRole }) {
+    const navigate = useNavigate();
+    const role = useRole();
     const [selectedRole, setSelectedRole] = useState('');
 
     const handleRoleChange = (role) => {
         setSelectedRole(role);
         onSelectRole(role);  // Passes the selected role to the parent component
+        changeRole(role)
+        setTimeout(()=> {
+            console.log("Redirecting you to the login page")
+            navigate("/login");
+        }, 2000)
     };
 
     return (
@@ -15,7 +25,7 @@ function Role({ onSelectRole }) {
 
                 {/* Buyer Role */}
                 <div
-                    onClick={() => handleRoleChange('Buyer')}
+                    onClick={() => handleRoleChange('buyer')}
                     className={`p-6 bg-white rounded-lg shadow-md cursor-pointer ${
                         selectedRole === 'Buyer' ? 'border-4 border-blue-500' : 'border'
                     } hover:border-blue-500 transition-all`}
@@ -29,7 +39,7 @@ function Role({ onSelectRole }) {
 
                 {/* Seller Role */}
                 <div
-                    onClick={() => handleRoleChange('Seller')}
+                    onClick={() => handleRoleChange('seller')}
                     className={`p-6 bg-white rounded-lg shadow-md cursor-pointer ${
                         selectedRole === 'Seller' ? 'border-4 border-green-500' : 'border'
                     } hover:border-green-500 transition-all`}
@@ -43,7 +53,7 @@ function Role({ onSelectRole }) {
 
                 {/* Vendor Role */}
                 <div
-                    onClick={() => handleRoleChange('Vendor')}
+                    onClick={() => handleRoleChange('vendor')}
                     className={`p-6 bg-white rounded-lg shadow-md cursor-pointer ${
                         selectedRole === 'Vendor' ? 'border-4 border-red-500' : 'border'
                     } hover:border-red-500 transition-all`}
