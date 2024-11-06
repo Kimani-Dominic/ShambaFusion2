@@ -7,7 +7,7 @@ import { useRole } from "@/hooks/useRole";
 const Login = () => {
     // const role = useRole();
     const [formData, setFormData] = useState({
-        email: "",
+        // email: "",
         password: ""
     });
     
@@ -41,12 +41,14 @@ const Login = () => {
                 localStorage.setItem('userId', data.user_id);
 
                 const userRole = data.user_role;
-                if (userRole === "vendor" || userRole === "seller" || userRole === 'buyer') {
-                    // changeRole(data.user_role)
-                    navigate('/choose-role');
-                } else {
-                    navigate('/admin-panel/dashboard');
+                if (userRole === 'seller') {
+                    navigate('/farmer-dashboard');
+                } else if (userRole === 'buyer') {
+                    navigate('/buyer-dashboard');
+                } else if (userRole === 'vendor') {
+                    navigate('/vendor-dashboard');
                 }
+                
             } else {
                 console.log("Server error");
                 setErrorMessage("An error occurred. Please try again.");

@@ -14,6 +14,9 @@ import Role from './components/client/Roles';
 import DiseaseModelForm from './pages/disease/DiseaseModelForm';
 import DiseaseDetailsPage from "./pages/disease/DiseaseDetailsPage";
 import FarmInsightsComponent from './pages/farminsight/FarmInsightsComponent';
+import VendorDashboard from './components/admin/vendorDashboard';
+import BuyerDashboard from './components/admin/BuyerDashboard';
+import SellerDashboard from './components/admin/sellerDashboard';
 
 
 
@@ -40,8 +43,14 @@ function App() {
               
               <Route path='/farminsights' element={<FarmInsightsComponent />} /> */}
 
-              <Route path='/admin-panel/*' element={<RoleProvider><Admin /></RoleProvider>} />
-              
+              {/* <Route path='/admin-panel/*' element={<RoleProvider><Admin /></RoleProvider>} /> */}
+
+              <Route path="/farmer-dashboard" element={<RoleProvider><SellerDashboard /></RoleProvider>}/>
+
+              <Route path="/buyer-dashboard" element={<RoleProvider><BuyerDashboard /></RoleProvider>} />
+
+              <Route path="/vendor-dashboard" element={<RoleProvider><VendorDashboard /></RoleProvider>} /> 
+
               <Route path='/contact' element={<Contact />} />
 
               <Route path='/market' element={<Market />} />
