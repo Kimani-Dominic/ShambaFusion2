@@ -37,8 +37,8 @@ import roleLinks from './roleLinks';
 import { ChevronRight, Menu } from 'lucide-react';
 
 function SideBar() {
-    const { role } = useRole();
-
+    // const {role} = useRole();
+    const role = localStorage.getItem('user_role')
     return (
         <aside className="w-64 h-screen bg-gradient-to-b from-primary to-primary-foreground text-primary-foreground flex flex-col">
             <div className="p-4 border-b border-primary/10">

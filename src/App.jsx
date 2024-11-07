@@ -17,6 +17,7 @@ import FarmInsightsComponent from './pages/farminsight/FarmInsightsComponent';
 import VendorDashboard from './components/admin/vendorDashboard';
 import BuyerDashboard from './components/admin/BuyerDashboard';
 import SellerDashboard from './components/admin/sellerDashboard';
+import { AuthProvider } from './hooks/useAuth';
 
 
 
@@ -27,37 +28,28 @@ function App() {
     <>
       <Router>
           <div>
-            <Routes>
+            <RoleProvider>
+              <AuthProvider>
+              <Routes>
+                  <Route path='/' element={<Home />} />
 
-              <Route path='/' element={<Home />} />
+                  <Route path='/login' element={<Login />} />
 
-              <Route path='/login' element={<Login />} />
+                  <Route path='/signup' element={<Signup />} />
 
-              <Route path='/signup' element={<Signup />} />
+                  <Route path='/about' element={<About />} />
 
-              <Route path='/about' element={<About />} />
+                  <Route path='/admin-panel/*' element={<Admin />} />
 
-              {/* <Route path='/diseasemodelform' element={<DiseaseModelForm />} />
+                  <Route path='/contact' element={<Contact />} />
 
-              <Route path='/diseasedetails' element={<DiseaseDetailsPage />} />
-              
-              <Route path='/farminsights' element={<FarmInsightsComponent />} /> */}
+                  <Route path='/market' element={<Market />} />
 
-              {/* <Route path='/admin-panel/*' element={<RoleProvider><Admin /></RoleProvider>} /> */}
+                  <Route path='/choose-role' element={<Role />} />
 
-              <Route path="/farmer-dashboard" element={<RoleProvider><SellerDashboard /></RoleProvider>}/>
-
-              <Route path="/buyer-dashboard" element={<RoleProvider><BuyerDashboard /></RoleProvider>} />
-
-              <Route path="/vendor-dashboard" element={<RoleProvider><VendorDashboard /></RoleProvider>} /> 
-
-              <Route path='/contact' element={<Contact />} />
-
-              <Route path='/market' element={<Market />} />
-
-              <Route path='/choose-role' element={<Role />} />
-
-            </Routes>
+                </Routes>
+              </AuthProvider>
+            </RoleProvider>
           </div>
       </Router>
     </>

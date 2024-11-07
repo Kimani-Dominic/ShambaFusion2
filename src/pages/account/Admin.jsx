@@ -6,8 +6,8 @@ import { useRole } from '../../hooks/useRole';
 
 function Admin() {
 
-    const {role} = useRole();
-
+    // const {role} = useRole();
+    const role = localStorage.getItem('user_role')
     return(
         <>
             <div className="flex">

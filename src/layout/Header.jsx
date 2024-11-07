@@ -1,9 +1,12 @@
 
 // src/components/Header.jsx
+import { useAuth } from '@/hooks/useAuth';
 import React from 'react';
 import { Link } from 'react-router-dom';
 
 function Header() {
+    // const {authenticated} = useAuth();
+    const authenticated = localStorage.getItem('authenticated');
     return (
         <header className="fixed top-0 left-0 w-full bg-green-500 text-white shadow-md z-50">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
@@ -20,7 +23,7 @@ function Header() {
                     <Link to="/market" className="hover:text-gray-300">Market</Link>
                     <Link to="/about" className="hover:text-gray-300">About</Link>
                     <Link to="/contact" className="hover:text-gray-300">Contact</Link>
-                    <Link to="/admin-panel" className="hover:text-gray-300">Account</Link>
+                    {authenticated ? <Link to="/admin-panel" className="hover:text-gray-300">Account</Link> : <Link to='/login' className='hover:text-gray-300'>Login</Link>}
                 </nav>
             </div>
         </header>

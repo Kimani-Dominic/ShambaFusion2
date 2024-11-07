@@ -3,14 +3,14 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
 
-function Role({ onSelectRole }) {
+function Role() {
     const navigate = useNavigate();
-    const role = useRole();
+    const {role, changeRole} = useRole();
     const [selectedRole, setSelectedRole] = useState('');
 
     const handleRoleChange = (role) => {
         setSelectedRole(role);
-        onSelectRole(role);  // Passes the selected role to the parent component
+        // onSelectRole(role);  // Passes the selected role to the parent component
         changeRole(role)
         setTimeout(()=> {
             console.log("Redirecting you to the login page")

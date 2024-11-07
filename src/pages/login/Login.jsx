@@ -3,9 +3,11 @@ import LoginImage from '../../assets/login.jpg';
 import { useState } from "react";
 import { API_BASE_URL } from '../../apiConfig';
 import { useRole } from "@/hooks/useRole";
+import { useAuth } from "@/hooks/useAuth";
 
 const Login = () => {
-    // const role = useRole();
+    const {role, changeRole} = useRole(); 
+    const {authenticated, changeAuthState} = useAuth();
     const [formData, setFormData] = useState({
         // email: "",
         password: ""
@@ -41,21 +43,19 @@ const Login = () => {
                 localStorage.setItem('userId', data.user_id);
 
                 const userRole = data.user_role;
-                if (userRole === 'seller') {
-                    navigate('/farmer-dashboard');
-                } else if (userRole === 'buyer') {
-                    navigate('/buyer-dashboard');
-                } else if (userRole === 'vendor') {
-                    navigate('/vendor-dashboard');
-                }
+                changeRole(userRole)
+                changeAuthState(true)
+                navigate('/admin-panel')
                 
             } else {
                 console.log("Server error");
                 setErrorMessage("An error occurred. Please try again.");
+                changeAuthState(false)
             }
         } catch (error) {
             console.log("An error occurred while submitting data");
             setErrorMessage("An error occurred. Please try again.");
+            changeAuthState(false)
         } finally {
             setIsSubmitting(false);
         }

@@ -5,7 +5,8 @@ import BuyerDashboard from "./BuyerDashboard";
 
 function Dashboard() {
 
-    const { role } = useRole(); 
+    // const {role} = useRole();
+    const role = localStorage.getItem('user_role')
 
     return (
         <div className="p-6 bg-white rounded-lg shadow-md" >
