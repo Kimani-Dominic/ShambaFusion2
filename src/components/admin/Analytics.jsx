@@ -6,7 +6,8 @@ import { Line, Bar, Pie } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 import { DollarSign, ShoppingBag, TrendingUp, Truck, Users, BarChart2 } from 'lucide-react';
 const Analytics = () => {
-  const { role } = useRole();
+  // const { role } = useRole();
+  const role = localStorage.getItem('user_role')
 
   // Mock data for charts
   const lineChartData = [
