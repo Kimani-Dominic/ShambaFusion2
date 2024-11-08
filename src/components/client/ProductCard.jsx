@@ -20,7 +20,14 @@ const ProductCard = ({ product }) => {
                     <p className="text-xs text-gray-500 mt-1">{product.farmer.bio}</p>
                 </div>
 
-                <button className="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700">
+                <button 
+                    className="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 snipcart-add-item"
+                    data-item-id={product.id}
+                    data-item-price={product.price}
+                    data-item-description
+                    data-item-image={product.imageUrl}
+                    data-item-name={product.name}
+                >
                     Add to Cart
                 </button>
             </div>

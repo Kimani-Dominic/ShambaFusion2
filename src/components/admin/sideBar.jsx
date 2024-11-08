@@ -40,7 +40,7 @@ function SideBar() {
     // const {role} = useRole();
     const role = localStorage.getItem('user_role')
     return (
-        <aside className="w-64 h-screen bg-gradient-to-b from-primary to-primary-foreground text-primary-foreground flex flex-col">
+        <aside className="w-64 h-full bg-gradient-to-b from-primary to-primary-foreground text-primary-foreground flex flex-col">
             <div className="p-4 border-b border-primary/10">
                 <h2 className="text-2xl font-bold flex items-center space-x-2">
                     <Menu className="h-6 w-6" />
