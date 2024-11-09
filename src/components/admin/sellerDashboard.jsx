@@ -38,7 +38,7 @@ import { DollarSign, ShoppingCart, Package, TrendingUp } from 'lucide-react';
 
 const SellerDashboard = () => {
   return (
-    <div className="bg-gradient-to-br from-white to-gray-100 p-8 rounded-xl shadow-lg">
+    <div className="bg-gradient-to-br from-white to-gray-100 p-8 ">
       <h3 className="text-3xl font-bold mb-6 text-gray-800 border-b pb-2">Seller Overview</h3>
       <ul className="space-y-6">
         <li className="flex justify-between items-center bg-white p-4 rounded-lg shadow transition-all duration-300 hover:shadow-md">

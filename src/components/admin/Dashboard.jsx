@@ -9,7 +9,7 @@ function Dashboard() {
     const role = localStorage.getItem('user_role')
 
     return (
-        <div className="p-6 bg-white rounded-lg shadow-md" >
+        <div className="p-6 bg-white shadow-md" >
             <h2 className="text-2xl font-bold mb-4">Overview</h2>
             {role === 'buyer' && <BuyerDashboard />}
             {role === 'seller' && <SellerDashboard />}
