@@ -31,9 +31,9 @@ const ProductManagement = () => {
       const product = { ...newProduct, id: products.length + 1, sold: 0 };
       // setProducts([...products, product]);
       const data = {...product, farmer: localStorage.getItem('userId')}
-      // console.log(data);
+      console.log(data);
       
-      const response = await fetch(`${API_BASE_URL}api/farmproducts/post_product/`, {
+      const response = await fetch(`${API_BASE_URL}post_product/`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -157,21 +157,7 @@ const ProductManagement = () => {
 
             </div>
 
-            <div>
-              <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">Image</label>
-              <input
-                  id="image"
-                  type="file"
-                  name="image"
-                  accept="image/*" // Only allows image file types
-                  onChange={editProduct 
-                      ? e => setEditProduct({ ...editProduct, image: e.target.files[0] }) // Sets the file object for editing
-                      : handleInputChange // Adjust this in handleInputChange to handle file inputs correctly
-                  }
-                  required
-                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
-              />
-            </div>
+            
 
           </div>
           <button type="submit" className="mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">
