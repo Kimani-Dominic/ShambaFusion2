@@ -1,8 +1,7 @@
 
 import SideBar from '../../components/admin/sideBar';
-import { Outlet, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import roleLinks from '../../components/admin/roleLinks';
-import { useRole } from '../../hooks/useRole';
 
 function Admin() {
 
