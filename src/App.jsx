@@ -11,22 +11,16 @@ import Market from './pages/marketplace/Market';
 import Contact from './pages/contact/Contact';
 import { RoleProvider } from './hooks/useRole';
 import Role from './components/client/Roles';
-import ProductList from './components/client/ProductListing';
-import DiseaseModelForm from './pages/disease/DiseaseModelForm';
-import DiseaseDetailsPage from "./pages/disease/DiseaseDetailsPage";
-import FarmInsightsComponent from './pages/farminsight/FarmInsightsComponent';
-import VendorDashboard from './components/admin/vendorDashboard';
-import BuyerDashboard from './components/admin/BuyerDashboard';
-import SellerDashboard from './components/admin/sellerDashboard';
 import { AuthProvider } from './hooks/useAuth';
-
-
+import { CartProvider } from './hooks/useCart';
+import CheckoutPage from './pages/checkout/CheckoutPage';
 
 function App() {
 
 
   return (
     <>
+      <CartProvider>
       <Router>
           <div>
             <RoleProvider>
@@ -48,11 +42,14 @@ function App() {
 
                   <Route path='/choose-role' element={<Role />} />
 
+                  <Route path='/checkout' element={<CheckoutPage />} />
+
                 </Routes>
               </AuthProvider>
             </RoleProvider>
           </div>
       </Router>
+      </CartProvider>
     </>
   )
 }

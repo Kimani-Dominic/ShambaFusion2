@@ -10,7 +10,7 @@ const ProductListing = () => {
     useEffect(() => {
         const fetchProducts = async () => {
             try {
-                const response = await fetch(`${API_BASE_URL}/api/farmproducts/get_products/`);
+                const response = await fetch(`${API_BASE_URL}api/farmproducts/get_products/`);
                 if (response.ok) {
                     const data = await response.json();
                     setProducts(data);
@@ -44,7 +44,7 @@ export default ProductListing;
 //     return (
 //         <section className="py-8 px-6">
 //             <h2 className="text-2xl font-bold mb-6">Featured Products</h2>
-//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
 //                 {products.map((product, index) => (
 //                     <ProductCard key={index} product={product} />
 //                 ))}
