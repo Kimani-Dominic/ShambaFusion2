@@ -1,12 +1,11 @@
-
 import React, { useState, useEffect } from 'react';
 import { Plus, Edit2, Trash2, BarChart2, Package, DollarSign, ShoppingCart } from 'lucide-react';
 import { API_BASE_URL } from '@/apiConfig';
 
 // Sample product data (you'd usually fetch this from an API)
 const initialProducts = [
-  { id: 1, name: 'Tomatoes', price: 2.5, quantity: 100, sold: 20 },
-  { id: 2, name: 'Potatoes', price: 1.5, quantity: 50, sold: 30 },
+  { id: 1, name: 'Tomatoes', price: 2.5, quantity: 100, sold: 20, image: '' },
+  { id: 2, name: 'Potatoes', price: 1.5, quantity: 50, sold: 30, image: '' },
 ];
 
 const ProductManagement = () => {
@@ -25,48 +24,79 @@ const ProductManagement = () => {
     setNewProduct({ ...newProduct, [name]: value });
   };
 
-  const handleAddProduct = async(e) => {
+  const handleImageChange = (e) => {
+    const { name, files } = e.target;
+    setNewProduct({ ...newProduct, [name]: files[0] });
+  };
+
+  const handleAddProduct = async (e) => {
     e.preventDefault();
     try {
       const product = { ...newProduct, id: products.length + 1, sold: 0 };
-      // setProducts([...products, product]);
-      const data = {...product, farmer: localStorage.getItem('userId')}
-      // console.log(data);
-      
+      const data = { ...product, farmer: localStorage.getItem('userId') };
+
+      const formData = new FormData();
+      Object.keys(data).forEach((key) => {
+        formData.append(key, data[key]);
+      });
+
       const response = await fetch(`${API_BASE_URL}api/farmproducts/post_product/`, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
         },
-        body: JSON.stringify(data)
+        body: formData,
       });
-      if(response.ok) {
-        console.log("Added products successfully");
-        setNewProduct({ name: '', price: '', quantity: '' });
-        setIsFormVisible(false);
-      }else {
-        console.log("something went wrong");
-        
-      }
-    } catch(err) {
-      console.log(err);
-      
-    }
 
-    
+      if (response.ok) {
+        console.log("Added product successfully");
+        setNewProduct({ name: '', price: '', category: '', quantity: '', description: '', image: '' });
+        setIsFormVisible(false);
+        // Fetch updated product list from the API after adding
+        const addedProduct = await response.json(); // Assuming API returns the new product
+        setProducts([...products, addedProduct]);
+      } else {
+        console.log("Something went wrong");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleEditProduct = (product) => {
-    setEditProduct(product);
+    setEditProduct({ ...product });
     setIsFormVisible(true);
   };
 
-  const handleUpdateProduct = (e) => {
+  const handleUpdateProduct = async (e) => {
     e.preventDefault();
-    setProducts(products.map(p => (p.id === editProduct.id ? editProduct : p)));
-    setEditProduct(null);
-    setIsFormVisible(false);
+    try {
+      const updatedProduct = { ...editProduct, farmer: localStorage.getItem('userId') };
+
+      const formData = new FormData();
+      Object.keys(updatedProduct).forEach((key) => {
+        formData.append(key, updatedProduct[key]);
+      });
+
+      const response = await fetch(`${API_BASE_URL}api/farmproducts/update_product/${editProduct.id}/`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
+        },
+        body: formData,
+      });
+
+      if (response.ok) {
+        console.log("Updated product successfully");
+        setProducts(products.map(p => (p.id === editProduct.id ? editProduct : p)));
+        setEditProduct(null);
+        setIsFormVisible(false);
+      } else {
+        console.log("Something went wrong");
+      }
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   const handleDeleteProduct = (id) => {
@@ -90,6 +120,21 @@ const ProductManagement = () => {
       {isFormVisible && (
         <form onSubmit={editProduct ? handleUpdateProduct : handleAddProduct} className="mb-8 bg-white p-6 rounded-lg shadow-md">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+
+          <div>
+              <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">User ID</label>
+              <input
+                id="user"
+                type="text"
+                name="user"
+                value={editProduct ? editProduct.user : newProduct.user}
+                onChange={editProduct ? e => setEditProduct({ ...editProduct, name: e.target.value }) : handleInputChange}
+                placeholder="user"
+                required
+                className="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+              />
+            </div>
+
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Product Name</label>
               <input
@@ -154,25 +199,19 @@ const ProductManagement = () => {
                 required
                 className="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
               />
-
             </div>
-
             <div>
               <label htmlFor="image" className="block text-sm font-medium text-gray-700 mb-1">Image</label>
               <input
-                  id="image"
-                  type="file"
-                  name="image"
-                  accept="image/*" // Only allows image file types
-                  onChange={editProduct 
-                      ? e => setEditProduct({ ...editProduct, image: e.target.files[0] }) // Sets the file object for editing
-                      : handleInputChange // Adjust this in handleInputChange to handle file inputs correctly
-                  }
-                  required
-                  className="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                id="image"
+                type="file"
+                name="image"
+                accept="image/*"
+                onChange={editProduct ? handleImageChange : handleImageChange}
+                required
+                className="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
               />
             </div>
-
           </div>
           <button type="submit" className="mt-4 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-full transition duration-300 ease-in-out">
             {editProduct ? 'Update Product' : 'Add Product'}
@@ -180,29 +219,35 @@ const ProductManagement = () => {
         </form>
       )}
 
-      <div className="bg-white rounded-lg shadow-md overflow-hidden">
-        <table className="w-full table-auto">
-          <thead className="bg-gray-100">
-            <tr>
-              <th className="px-4 py-2 text-left text-gray-600">Name</th>
-              <th className="px-4 py-2 text-left text-gray-600">Price</th>
-              <th className="px-4 py-2 text-left text-gray-600">Quantity</th>
-              <th className="px-4 py-2 text-left text-gray-600">Sold</th>
-              <th className="px-4 py-2 text-left text-gray-600">Actions</th>
+      <div className="overflow-x-auto shadow rounded-lg">
+        <table className="min-w-full bg-white">
+          <thead>
+            <tr className="text-left text-sm font-semibold text-gray-600">
+              <th className="p-2 border-b">Product</th>
+              <th className="p-2 border-b">Price</th>
+              <th className="p-2 border-b">Quantity</th>
+              <th className="p-2 border-b">Sold</th>
+              <th className="p-2 border-b">Actions</th>
             </tr>
           </thead>
           <tbody>
             {products.map(product => (
-              <tr key={product.id} className="border-b border-gray-200 hover:bg-gray-50">
-                <td className="px-4 py-2">{product.name}</td>
-                <td className="px-4 py-2">${product.price.toFixed(2)}</td>
-                <td className="px-4 py-2">{product.quantity}</td>
-                <td className="px-4 py-2">{product.sold}</td>
-                <td className="px-4 py-2">
-                  <button onClick={() => handleEditProduct(product)} className="text-yellow-500 hover:text-yellow-600 mr-2">
+              <tr key={product.id} className="text-sm font-medium text-gray-700">
+                <td className="p-2 border-b">{product.name}</td>
+                <td className="p-2 border-b">{product.price}</td>
+                <td className="p-2 border-b">{product.quantity}</td>
+                <td className="p-2 border-b">{product.sold}</td>
+                <td className="p-2 border-b">
+                  <button
+                    onClick={() => handleEditProduct(product)}
+                    className="text-yellow-500 hover:text-yellow-600 mr-2"
+                  >
                     <Edit2 size={18} />
                   </button>
-                  <button onClick={() => handleDeleteProduct(product.id)} className="text-red-500 hover:text-red-600">
+                  <button
+                    onClick={() => handleDeleteProduct(product.id)}
+                    className="text-red-500 hover:text-red-600"
+                  >
                     <Trash2 size={18} />
                   </button>
                 </td>
@@ -210,33 +255,6 @@ const ProductManagement = () => {
             ))}
           </tbody>
         </table>
-      </div>
-
-      <h2 className="text-2xl font-bold mt-12 mb-6 text-gray-800">Product Performance Metrics</h2>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <div className="flex items-center justify-between">
-            <div className="text-gray-500">Total Products</div>
-            <Package className="text-blue-500" size={24} />
-          </div>
-          <div className="text-3xl font-bold mt-2">{products.length}</div>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <div className="flex items-center justify-between">
-            <div className="text-gray-500">Total Sold</div>
-            <ShoppingCart className="text-green-500" size={24} />
-          </div>
-          <div className="text-3xl font-bold mt-2">{products.reduce((acc, p) => acc + p.sold, 0)}</div>
-        </div>
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <div className="flex items-center justify-between">
-            <div className="text-gray-500">Total Revenue</div>
-            <DollarSign className="text-yellow-500" size={24} />
-          </div>
-          <div className="text-3xl font-bold mt-2">
-            ${products.reduce((acc, p) => acc + p.price * p.sold, 0).toFixed(2)}
-          </div>
-        </div>
       </div>
     </div>
   );
