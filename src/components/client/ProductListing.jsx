@@ -1,19 +1,56 @@
-
-// src/components/ProductListing.jsx
-import React from 'react';
+// src/components/ProductList.jsx
+import React, { useState, useEffect } from 'react';
 import ProductCard from './ProductCard';
+import { API_BASE_URL } from '@/apiConfig';
 
-const ProductListing = ({ products = [] }) => {
+const ProductListing = () => {
+    const [products, setProducts] = useState([]);
+
+    // Fetch products from the database
+    useEffect(() => {
+        const fetchProducts = async () => {
+            try {
+                const response = await fetch(`${API_BASE_URL}/api/farmproducts/get_products/`);
+                if (response.ok) {
+                    const data = await response.json();
+                    setProducts(data);
+                } else {
+                    console.error("Failed to fetch products.");
+                }
+            } catch (error) {
+                console.error("Error fetching products:", error);
+            }
+        };
+        
+        fetchProducts();
+    }, []);
+
     return (
-        <section className="py-8 px-6">
-            <h2 className="text-2xl font-bold mb-6">Featured Products</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                {products.map((product, index) => (
-                    <ProductCard key={index} product={product} />
-                ))}
-            </div>
-        </section>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 p-4">
+            {products.map(product => (
+                <ProductCard key={product.id} product={product} />
+            ))}
+        </div>
     );
 };
 
 export default ProductListing;
+
+// // src/components/ProductListing.jsx
+// import React from 'react';
+// import ProductCard from './ProductCard';
+
+// const ProductListing = ({ products = [] }) => {
+//     return (
+//         <section className="py-8 px-6">
+//             <h2 className="text-2xl font-bold mb-6">Featured Products</h2>
+//             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+//                 {products.map((product, index) => (
+//                     <ProductCard key={index} product={product} />
+//                 ))}
+//             </div>
+//         </section>
+//     );
+// };
+
+// export default ProductListing;

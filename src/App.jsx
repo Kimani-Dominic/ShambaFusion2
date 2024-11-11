@@ -11,6 +11,7 @@ import Market from './pages/marketplace/Market';
 import Contact from './pages/contact/Contact';
 import { RoleProvider } from './hooks/useRole';
 import Role from './components/client/Roles';
+import ProductList from './components/client/ProductListing';
 import DiseaseModelForm from './pages/disease/DiseaseModelForm';
 import DiseaseDetailsPage from "./pages/disease/DiseaseDetailsPage";
 import FarmInsightsComponent from './pages/farminsight/FarmInsightsComponent';

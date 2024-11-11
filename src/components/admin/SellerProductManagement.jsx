@@ -79,7 +79,7 @@ const ProductManagement = () => {
       });
 
       const response = await fetch(`${API_BASE_URL}api/farmproducts/update_product/${editProduct.id}/`, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
           'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
         },
