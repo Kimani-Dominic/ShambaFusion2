@@ -24,7 +24,7 @@ const ProductCard = ({ product }) => {
                 <CardTitle>{product.name}</CardTitle>
             </CardHeader>
             <CardContent>
-            <p className="text-2xl font-bold">KES {product.price.toFixed(2)}</p>
+            <p className="text-2xl font-bold text-red-600">KES {product.price.toFixed(2)}</p>
             <p className="text-muted-foreground">{product.size}</p>
                 {product.farmer && (
                         <div className="mt-4 bg-gray-100 p-3 rounded">
@@ -44,7 +44,7 @@ const ProductCard = ({ product }) => {
                 <Plus className="h-4 w-4" />
                 </Button>
             </div>
-            <Button className="w-full bg-green-500" onClick={handleAddToCart}>
+            <Button className="w-full bg-red-600" onClick={handleAddToCart}>
                 <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
             </Button>
             </CardFooter>

@@ -1,11 +1,12 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 function ProductCategories({ categories }) {
     return (
-        <section className="py-12 mb-1 bg-emerald-50">
+        <section className="py-12 mb-1 bg-indigo-50">
             <div className="container mx-auto text-center mb-8">
-                <h2 className="text-3xl font-bold text-green-500">Explore Product Categories</h2>
+                <h2 className="text-3xl font-bold text-red-600">Explore Product Categories</h2>
                 <p className="text-gray-600 mt-2">Find your desired produce from different categories</p>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 container mx-auto">
@@ -18,8 +19,8 @@ function ProductCategories({ categories }) {
                         />
                         <h3 className="text-lg font-semibold text-gray-800">{category.name}</h3>
                         <p className="text-gray-600 mt-2">{category.description}</p>
-                        <button className="mt-4 bg-green-500 text-white py-2 px-4 rounded-md hover:bg-white hover:text-green-500 transition">
-                            Shop {category.name}
+                        <button className="mt-4 bg-red-600 text-white py-2 px-4 rounded-md hover:border-red-600 hover:text-white transition">
+                            <Link to="/market">Shop Now</Link>
                         </button>
                     </div>
                 ))}

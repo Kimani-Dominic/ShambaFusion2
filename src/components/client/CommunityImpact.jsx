@@ -5,7 +5,7 @@ function Impact() {
     return (
         <section className="py-16 bg-white">
             <div className="container mx-auto px-6">
-                <h2 className="text-3xl font-bold text-center mb-8">Our Impact</h2>
+                <h2 className="text-3xl font-bold text-center mb-8 text-red-600">Our Impact</h2>
                 <p className="text-gray-700 text-center mb-8">
                     At ShambaFusion, we are dedicated to making a positive difference in the lives of local farmers and the community.
                 </p>

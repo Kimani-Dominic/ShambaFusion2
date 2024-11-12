@@ -1,27 +1,27 @@
 const categories = [
     {
         id: 1,
-        name: 'Fruits',
-        description: 'Fresh and organic fruits directly from farmers.',
-        image: '/src/assets/categories/fruits.jpg', 
+        name: 'Cooking Tomatoes',
+        description: 'Fresh and organic ideal for stews and sauces.',
+        image: '/src/assets/categories/cooking-tomatoes.jpeg', 
     },
     {
         id: 2,
-        name: 'Vegetables',
-        description: 'Organic and healthy vegetables for your daily needs.',
-        image: '/src/assets/categories/vegetables.jpg', 
+        name: 'Salad Tomatoes',
+        description: 'Fresh and juicy type for your salads.',
+        image: '/src/assets/categories/salad-tomato.jpeg', 
     },
     {
         id: 3,
-        name: 'Grains & Cereals',
-        description: 'Wholesome grains and cereals for a nutritious meal.',
-        image: '/src/assets/categories/grains.jpg', 
+        name: 'Juicing Tomatoes',
+        description: 'Wholesome for tomato beverages and smoothies.',
+        image: '/src/assets/categories/juicing-tomatoes.jpeg', 
     },
     {
         id: 4,
-        name: 'Dairy Products',
-        description: 'Fresh dairy products from trusted farmers.',
-        image: '/src/assets/categories/dairy.jpg', 
+        name: 'Organic Tomatoes',
+        description: 'Fresh for oganic practices',
+        image: '/src/assets/categories/organic-tomato-category1.jpg', 
     },
 ];
 

@@ -7,7 +7,7 @@ import { ShambaShoppingCart } from './ShambaShoppingCart';
 
 const CustomHeader = () => {
   return (
-    <header className="bg-white shadow-lg mt-12 py-6 sm:px-6 lg:px-8">
+    <header className="bg-gray-50 shadow-lg mt-12 py-6 sm:px-6 lg:px-8">
       <div className="container mx-auto">
         <div className="flex flex-col sm:flex-row items-center justify-between space-y-4 sm:space-y-0 sm:space-x-4">
           {/* Search Bar */}

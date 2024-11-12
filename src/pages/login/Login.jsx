@@ -81,7 +81,7 @@ const Login = () => {
                         />
                     </div>
                     <div className="flex-1 p-8">
-                        <h2 className="text-3xl font-bold text-center mb-6">Welcome back!</h2>
+                        <h2 className="text-3xl font-bold text-center mb-6 text-red-600">Welcome back!</h2>
                         <form className="space-y-4" onSubmit={handleSubmit}>
                             <div>
                                 <input 
@@ -109,7 +109,7 @@ const Login = () => {
                             <div>
                                 <button 
                                     type="submit" 
-                                    className="w-full bg-indigo-600 text-white p-2 rounded-md hover:bg-indigo-700 transition duration-300"
+                                    className="w-full bg-red-600 text-white p-2 rounded-md hover:bg-red-400 transition duration-300"
                                     disabled={isSubmitting}
                                 >
                                     {isSubmitting ? 'Logging in...' : 'Login'}

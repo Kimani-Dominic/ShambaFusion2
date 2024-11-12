@@ -196,7 +196,7 @@ const Signup = () => {
                             <div>
                                 <button 
                                     type="submit" 
-                                    className="w-full bg-indigo-600 text-white p-2 rounded-md hover:bg-indigo-700 transition duration-300"
+                                    className="w-full bg-red-600 text-white p-2 rounded-md hover:bg-red-400 transition duration-300"
                                     disabled={isSubmitting}
                                 >
                                     {isSubmitting ? 'Signing Up...' : 'Sign Up'}

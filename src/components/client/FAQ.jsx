@@ -35,7 +35,7 @@ const FAQ = () => {
     return (
         <section className="py-16 bg-gray-100">
             <div className="container mx-auto px-6">
-                <h2 className="text-3xl font-bold text-center mb-8">Frequently Asked Questions</h2>
+                <h2 className="text-3xl font-bold text-center mb-8 text-red-600">Frequently Asked Questions</h2>
                 <div className="max-w-2xl mx-auto">
                     {faqs.map((faq, index) => (
                         <FAQItem key={index} question={faq.question} answer={faq.answer} />

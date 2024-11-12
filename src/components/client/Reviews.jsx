@@ -3,9 +3,9 @@ import React from 'react';
 
 function Testimonials({ reviews }) {
     return (
-        <section className="py-16 bg-white">
+        <section className="py-16 bg-stone-100">
             <div className="container mx-auto text-center mb-12">
-                <h2 className="text-3xl font-bold text-green-500">What Our Users Are Saying</h2>
+                <h2 className="text-3xl font-bold text-red-600">What Our Users Are Saying</h2>
                 <p className="text-gray-600 mt-2 max-w-2xl mx-auto">
                     Hear from the farmers and customers who have found success and satisfaction through ShambaFusion.
                 </p>
@@ -18,14 +18,14 @@ function Testimonials({ reviews }) {
                                 src={review.image} 
                                 alt={review.name} 
                                 className="w-16 h-16 object-cover rounded-full mr-4"
-                            /> : <div className="w-12 h-12 bg-primary rounded-full mr-4 flex items-center justify-center bg-green-500 text-white font-bold">{review.name.charAt(0)}</div>}
+                            /> : <div className="w-12 h-12 bg-primary rounded-full mr-4 flex items-center justify-center bg-red-600 text-white font-bold">{review.name.charAt(0)}</div>}
                             <div>
                                 <h4 className="text-lg font-semibold text-gray-800">{review.name}</h4>
                                 <p className="text-sm text-gray-600">{review.role}</p>
                             </div>
                         </div>
                         <p className="text-gray-700 mb-4">"{review.message}"</p>
-                        <div className="text-green-500">
+                        <div className="text-red-600">
                             {'★'.repeat(review.rating)}{'☆'.repeat(5 - review.rating)}
                         </div>
                     </div>

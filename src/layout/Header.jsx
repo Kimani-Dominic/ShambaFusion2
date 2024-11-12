@@ -8,7 +8,7 @@ function Header() {
     // const {authenticated} = useAuth();
     const authenticated = localStorage.getItem('authenticated');
     return (
-        <header className="fixed top-0 left-0 w-full bg-green-500 text-white shadow-md z-50">
+        <header className="fixed top-0 left-0 w-full bg-red-600 text-white shadow-md z-50">
             <div className="container mx-auto flex justify-between items-center py-4 px-6">
                 {/* Branding */}
                 <div className="text-xl font-bold">

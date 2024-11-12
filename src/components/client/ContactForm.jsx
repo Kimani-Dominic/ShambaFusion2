@@ -28,7 +28,7 @@ const ContactForm = () => {
     return (
         <section className="py-16 bg-gray-100">
   <div className="container mx-auto px-6">
-    <h2 className="text-3xl text-green-500 font-bold text-center mb-8">Contact Us</h2>
+    <h2 className="text-3xl text-red-600 font-bold text-center mb-8">Contact Us</h2>
     <form
       onSubmit={handleSubmit}
       className="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md"
@@ -99,7 +99,7 @@ const ContactForm = () => {
       <div className="text-center">
         <button
           type="submit"
-          className="w-full bg-green-500 text-white font-bold py-3 my-5 rounded-md shadow-lg hover:bg-white-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+          className="w-full bg-red-600 text-white font-bold py-3 my-5 rounded-md shadow-lg hover:bg-white-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
         >
           Submit
         </button>

@@ -3,7 +3,7 @@ function Story() {
         <>
             <section className="py-16 bg-gray-100">
                 <div className="container mx-auto px-6">
-                    <h2 className="text-3xl font-bold text-center mb-8">Our Story</h2>
+                    <h2 className="text-3xl font-bold text-center mb-8 text-red-500">Our Story</h2>
                     <p className="text-lg text-gray-700 mb-6">
                         At ShambaFusion, we believe in empowering local farmers by providing them with a platform to sell their produce directly to consumers. 
                         Our journey began with a simple idea: to eliminate the middlemen and create a sustainable agricultural ecosystem that benefits everyone involved.

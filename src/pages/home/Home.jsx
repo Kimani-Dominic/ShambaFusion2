@@ -1,7 +1,7 @@
 
 import Hero from "../../components/shared/Hero";
 import Header from "../../layout/Header";
-import HeroImage from '../../assets/hero.jpg';
+import HeroImage from '../../assets/hero2.jpg';
 import Featured from "../../components/client/FeaturedProducts.jsx";
 import products from "../../data/featuredProducts.js";
 import ProductCategories from "../../components/client/productCategories.jsx";
@@ -21,7 +21,7 @@ function Home() {
             <Header />
             <Hero 
                 title="Welcome to Shamba Fusion"
-                description="Connecting you directly with local farmers for fresh, quality produce. No brokers. No middlemen. Just farm-to-table goodness."
+                description="Connecting you directly to fresh, quality and locally grown tomatoes. No brokers. No middlemen. Just farm-to-table goodness."
                 imagePath={HeroImage}
                 primaryAction={{text: "Explore the market", href: "/market"}}
                 secondaryAction={{text: "Join us", href: "/signup"}}
