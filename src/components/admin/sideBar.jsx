@@ -49,7 +49,8 @@ function SideBar() {
             </div>
             <nav className="flex-1 overflow-y-auto">
                 <ul className="py-4 space-y-1">
-                    {roleLinks[role]?.map((link, index) => (
+                    {roleLinks[role]?.filter(link => link.name !== 'Landing')
+                    .map((link, index) => (
                         <li key={index}>
                             <Link
                                 to={link.path}

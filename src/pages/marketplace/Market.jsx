@@ -15,25 +15,10 @@ import { useEffect, useState } from 'react';
 
 function Market() {
 
-
-    // const [products, setProducts] = useState();
-    // const [farmer, setFarmer] = useState();
-
-
-    // useEffect(async () => {
-    //     const productData = await axiosInstance.get();
-    
-    // },[])
-    
-    // useEffect(async () => {
-    //     const farmerData = await axiosInstance.get(); 
-    // }, [])
-
     return(
         <>
             <Header />
             <CustomHeader />
-            <Breadcrumb paths={breadcrumbPaths} />
             <ProductListing products={products} />
             <MeetTheFarmer farmers={farmers} />
             {/* <FarmerProfile farmer={farmerProfile} /> */}

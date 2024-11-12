@@ -3,6 +3,7 @@ import { Input } from "../ui/input"
 import { Button } from "../ui/button"
 import { Badge } from "../ui/badge"
 import { Search, Filter, ShoppingCart } from 'lucide-react'
+import { ShambaShoppingCart } from './ShambaShoppingCart';
 
 const CustomHeader = () => {
   return (
@@ -27,13 +28,9 @@ const CustomHeader = () => {
             </Button>
 
             {/* Shopping Cart */}
-            <Button variant="ghost" className="relative p-2 rounded-full hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 snipcart-checkout">
-              <ShoppingCart className="h-6 w-6 text-gray-600" />
-              <Badge variant="destructive" className="absolute -top-1 -right-1 px-2 py-1 text-xs font-bold rounded-full snipcart-items-count">
-                0
-              </Badge>
-            </Button>
+            <ShambaShoppingCart />
           </div>
+     
         </div>
       </div>
     </header>

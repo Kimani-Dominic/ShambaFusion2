@@ -1,38 +1,56 @@
 // src/components/ProductCard.jsx
-import React from 'react';
+import { useState } from 'react'
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Button } from "@/components/ui/button"
+import { ShoppingCart, Minus, Plus } from 'lucide-react'
+import { useCart } from '@/hooks/useCart'
 
 const ProductCard = ({ product }) => {
-    return (
-        <div className="bg-white rounded-lg shadow-md overflow-hidden hover:shadow-lg transition-shadow">
-            <img
-                src={product.imageUrl}
-                alt={product.name}
-                className="w-full h-48 object-cover"
-            />
-            <div className="p-4">
-                <h3 className="text-lg font-semibold">{product.name}</h3>
-                <p className="text-gray-500 mt-1">Price: ${product.price}</p>
-                
-                {/* Farmer Details */}
-                <div className="mt-4 bg-gray-100 p-3 rounded">
-                    <h4 className="text-sm font-medium text-gray-700">Farmer: {product.farmer.name}</h4>
-                    <p className="text-sm text-gray-600">{product.farmer.location}</p>
-                    <p className="text-xs text-gray-500 mt-1">{product.farmer.bio}</p>
-                </div>
+    const { addToCart } = useCart()
+    const [quantity, setQuantity] = useState(1)
 
-                <button 
-                    className="mt-4 w-full bg-indigo-600 text-white py-2 px-4 rounded hover:bg-indigo-700 snipcart-add-item"
-                    data-item-id={product.id}
-                    data-item-price={product.price}
-                    data-item-description
-                    data-item-image={product.imageUrl}
-                    data-item-name={product.name}
-                >
-                    Add to Cart
-                </button>
+    const incrementQuantity = () => setQuantity(prev => prev + 1)
+    const decrementQuantity = () => setQuantity(prev => (prev > 1 ? prev - 1 : 1))
+
+    const handleAddToCart = () => {
+        addToCart({ ...product, quantity })
+        setQuantity(1) // Reset quantity after adding to cart
+    }
+
+    return (
+        <Card className="w-full max-w-sm mx-auto">
+            <CardHeader>
+                <img src={product.imageUrl} alt={`${product.name} ${product.size}`} className="w-full h-48 object-cover rounded-md" />
+                <CardTitle>{product.name}</CardTitle>
+            </CardHeader>
+            <CardContent>
+            <p className="text-2xl font-bold">KES {product.price.toFixed(2)}</p>
+            <p className="text-muted-foreground">{product.size}</p>
+                {product.farmer && (
+                        <div className="mt-4 bg-gray-100 p-3 rounded">
+                            <h4 className="text-sm font-medium text-gray-700">Farmer: {product.farmer.name || "Unknown"}</h4>
+                            <p className="text-sm text-gray-600">{product.farmer.location || "Location not specified"}</p>
+                            <p className="text-xs text-gray-500 mt-1">{product.farmer.bio || "No bio available"}</p>
+                        </div>
+                )}
+            </CardContent>
+            <CardFooter className="flex flex-col space-y-2">
+            <div className="flex items-center space-x-2">
+                <Button variant="outline" size="icon" onClick={decrementQuantity} aria-label="Decrease quantity">
+                <Minus className="h-4 w-4" />
+                </Button>
+                <span className="text-xl font-semibold">{quantity}</span>
+                <Button variant="outline" size="icon" onClick={incrementQuantity} aria-label="Increase quantity">
+                <Plus className="h-4 w-4" />
+                </Button>
             </div>
-        </div>
+            <Button className="w-full bg-green-500" onClick={handleAddToCart}>
+                <ShoppingCart className="mr-2 h-4 w-4" /> Add to Cart
+            </Button>
+            </CardFooter>
+        </Card>
     );
 };
 
 export default ProductCard;
+

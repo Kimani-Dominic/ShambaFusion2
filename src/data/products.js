@@ -2,7 +2,7 @@ const products = [
     {
         id: 1,
         name: 'Organic Tomatoes',
-        price: 5.99,
+        price: 25,
         imageUrl: 'https://via.placeholder.com/150',
         farmer: {
             name: 'John Doe',
@@ -13,7 +13,7 @@ const products = [
     {
         id: 2,
         name: 'Fresh Lettuce',
-        price: 3.49,
+        price: 20,
         imageUrl: 'https://via.placeholder.com/150',
         farmer: {
             name: 'Jane Smith',
@@ -24,7 +24,7 @@ const products = [
     {
         id: 3,
         name: 'Apples',
-        price: 4.99,
+        price: 60,
         imageUrl: 'https://via.placeholder.com/150',
         farmer: {
             name: 'Emily Johnson',
@@ -35,7 +35,7 @@ const products = [
     {
         id: 4,
         name: 'Carrots',
-        price: 2.99,
+        price: 50,
         imageUrl: 'https://via.placeholder.com/150',
         farmer: {
             name: 'Robert Kimani',
@@ -46,7 +46,7 @@ const products = [
     {
         id: 5,
         name: 'French Beans',
-        price: 6.99,
+        price: 35,
         imageUrl: 'https://via.placeholder.com/150',
         farmer: {
             name: 'Robert Kimani',
@@ -57,7 +57,7 @@ const products = [
     {
         id: 6,
         name: 'Green Grams',
-        price: 3.99,
+        price: 25,
         imageUrl: 'https://via.placeholder.com/150',
         farmer: {
             name: 'Robert Kimani',
@@ -68,7 +68,7 @@ const products = [
     {
         id: 7,
         name: 'Kales',
-        price: 2.99,
+        price: 20,
         imageUrl: 'https://via.placeholder.com/150',
         farmer: {
             name: 'Robert Kimani',
@@ -79,7 +79,18 @@ const products = [
     {
         id: 8,
         name: 'Onions',
-        price: 2.99,
+        price: 60,
+        imageUrl: 'https://via.placeholder.com/150',
+        farmer: {
+            name: 'Robert Kimani',
+            location: 'Eldoret, Kenya',
+            bio: 'Robert has been growing carrots for over 20 years and is known for his organic practices.',
+        },
+    },
+    {
+        id: 9,
+        name: 'Bananas',
+        price: 150,
         imageUrl: 'https://via.placeholder.com/150',
         farmer: {
             name: 'Robert Kimani',

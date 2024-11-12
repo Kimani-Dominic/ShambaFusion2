@@ -15,16 +15,18 @@ import AIInsights from "./AI-Insights";
 import PestControl from "./PestControl";
 import { LogOut } from "lucide-react";
 import Logout from "./Logout";
+import DashboardLanding from "./Landing";
 
 const roleLinks = {
     seller: [
+      { name: 'Landing', path: '/', element: <DashboardLanding />},
       { name: 'Dashboard', path: 'dashboard', element: <Dashboard /> },
       { name: 'Manage Products', path: 'products', element: <ProductManagement /> },
       { name: 'Orders', path: 'orders', element: <SellerOrderManagement /> },
       { name: 'Analytics', path: 'analytics', element: <Analytics /> },
-      {name: 'AI Insights', path: 'ai-insights', element: <AIInsights /> },
-      {name: 'Pest Control', path: 'pest-control', element: <PestControl />},
-      {name: 'Payments', path: 'payments', element: <PaymentManagement /> },
+      { name: 'AI Insights', path: 'ai-insights', element: <AIInsights /> },
+      { name: 'Pest Control', path: 'pest-control', element: <PestControl />},
+      { name: 'Payments', path: 'payments', element: <PaymentManagement /> },
       { name: 'Reviews and Feedback', path: 'reviews', element: <ReviewsFeedbacks /> },
       { name: 'Marketing Tools', path: 'marketing', element: <MarketingTools /> },
       { name: 'Logistics', path: 'logistics', element: <Logistics /> },
@@ -32,6 +34,7 @@ const roleLinks = {
       {name: 'Logout', path: 'logout', element: <Logout />}
     ],
     buyer: [
+      { name: 'Landing', path: '/', element: <DashboardLanding />},
       { name: 'Dashboard', path: 'dashboard', element: <Dashboard /> },
       { name: 'Browse Products', path: '/market', element: null },
       { name: 'View Orders', path: 'orders', element: <OrderManagement /> },
@@ -42,6 +45,7 @@ const roleLinks = {
       {name: 'Logout', path: 'logout', element: <Logout />}
     ],
     vendor: [
+      { name: 'Landing', path: '/', element: <DashboardLanding />},
       { name: 'Dashboard', path: 'dashboard', element: <Dashboard /> },
       { name: 'Manage Logistics', path: 'logistics', element: <Logistics /> },
       { name: 'View Shipments', path: 'shipments', element: <Shipment /> },

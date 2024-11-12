@@ -14,11 +14,11 @@ function Testimonials({ reviews }) {
                 {reviews.map((review) => (
                     <div key={review.id} className="bg-green-50 p-6 rounded-lg shadow-md">
                         <div className="flex items-center mb-4">
-                            <img 
+                            {review.image ? <img 
                                 src={review.image} 
                                 alt={review.name} 
                                 className="w-16 h-16 object-cover rounded-full mr-4"
-                            />
+                            /> : <div className="w-12 h-12 bg-primary rounded-full mr-4 flex items-center justify-center bg-green-500 text-white font-bold">{review.name.charAt(0)}</div>}
                             <div>
                                 <h4 className="text-lg font-semibold text-gray-800">{review.name}</h4>
                                 <p className="text-sm text-gray-600">{review.role}</p>
