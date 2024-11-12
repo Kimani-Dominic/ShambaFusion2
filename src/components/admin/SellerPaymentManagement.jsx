@@ -3,11 +3,11 @@ import { DollarSign, Calendar, CreditCard, CheckCircle, Clock, ArrowUpRight } fr
 
 // Sample transaction data
 const initialTransactions = [
-  { id: 1, date: '2024-10-01', amount: 150, method: 'M-Pesa', status: 'Completed' },
-  { id: 2, date: '2024-09-28', amount: 200, method: 'Bank Transfer', status: 'Completed' },
-  { id: 3, date: '2024-09-20', amount: 100, method: 'Airtel Money', status: 'Pending' },
-  { id: 4, date: '2024-10-05', amount: 175, method: 'M-Pesa', status: 'Completed' },
-  { id: 5, date: '2024-10-03', amount: 80, method: 'Airtel Money', status: 'Pending' },
+  { id: 1, date: '2024-10-01', amount: 15000, method: 'M-Pesa', status: 'Completed' },
+  { id: 2, date: '2024-09-28', amount: 20000, method: 'Bank Transfer', status: 'Completed' },
+  { id: 3, date: '2024-09-20', amount: 10000, method: 'Airtel Money', status: 'Pending' },
+  { id: 4, date: '2024-10-05', amount: 17500, method: 'M-Pesa', status: 'Completed' },
+  { id: 5, date: '2024-10-03', amount: 80000, method: 'Airtel Money', status: 'Pending' },
 ];
 
 const PaymentManagement = () => {
@@ -31,7 +31,7 @@ const PaymentManagement = () => {
           <h3 className="text-xl font-semibold mb-4 text-gray-700">Earnings Overview</h3>
           <div className="flex items-center justify-between">
             <span className="text-gray-600">Total Earnings</span>
-            <span className="text-3xl font-bold text-green-600">${totalEarnings.toFixed(2)}</span>
+            <span className="text-3xl font-bold text-green-600">KES {totalEarnings.toFixed(2)}</span>
           </div>
           <div className="mt-4">
             <button className="text-blue-600 hover:text-blue-800 flex items-center">
@@ -78,8 +78,8 @@ const PaymentManagement = () => {
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">
                     <div className="flex items-center">
-                      <DollarSign className="h-5 w-5 text-gray-400 mr-2" />
-                      <span className="text-sm font-medium text-gray-900">${transaction.amount.toFixed(2)}</span>
+                      {/* <DollarSign className="h-5 w-5 text-gray-400 mr-2" /> */}
+                      <span className="text-sm font-medium text-gray-900">KES {transaction.amount.toFixed(2)}</span>
                     </div>
                   </td>
                   <td className="px-6 py-4 whitespace-nowrap">

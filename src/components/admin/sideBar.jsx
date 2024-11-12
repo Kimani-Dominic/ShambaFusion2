@@ -1,35 +1,4 @@
 
-// import { Link } from "react-router-dom";
-// import { useRole } from "../../hooks/useRole";
-// import roleLinks from './roleLinks'
-
-// function SideBar() {
-
-//     const {role} = useRole();
-
-//     return (
-//         <aside className="w-64 h-screen bg-gray-800 text-white">
-//             <div className="p-4">
-//             <h2 className="text-2xl font-bold mb-4">Shamba Fusion</h2>
-//             <ul>
-//             {roleLinks[role]?.map((link, index) => (
-//                 <li key={index}>
-//                     <Link
-//                         to={link.path}
-//                         className="block py-2 px-4 rounded hover:bg-gray-700 transition"
-//                     >
-//                         {link.name}
-//                     </Link>
-//                 </li>
-//             ))}
-//             </ul>
-//         </div>
-//         </aside>
-//     );
-// }
-
-// export default SideBar;
-
 import React from 'react';
 import { Link } from "react-router-dom";
 import { useRole } from "../../hooks/useRole";
@@ -56,6 +25,7 @@ function SideBar() {
                                 to={link.path}
                                 className="flex items-center py-2 px-4 text-sm hover:bg-primary-foreground/10 transition-colors duration-200 rounded-lg mx-2 group"
                             >
+                                <link.icon className="mr-3 h-5 w-5 text-gray-500 group-hover:text-primary-foreground" />
                                 <span className="flex-1">{link.name}</span>
                                 <ChevronRight className="h-4 w-4 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                             </Link>

@@ -39,7 +39,7 @@ import { Truck, DollarSign, BarChart2, Clock, ChevronRight, Bell } from 'lucide-
 const VendorDashboard = () => {
   const stats = [
     { title: "Current Deliveries", value: 0, icon: Truck, color: "bg-blue-500" },
-    { title: "Earnings", value: "$0", icon: DollarSign, color: "bg-green-500" },
+    { title: "Earnings", value: "KES 0", icon: DollarSign, color: "bg-green-500" },
     { title: "Performance Score", value: "N/A", icon: BarChart2, color: "bg-yellow-500" },
     { title: "Pending Requests", value: 0, icon: Clock, color: "bg-purple-500" },
   ];

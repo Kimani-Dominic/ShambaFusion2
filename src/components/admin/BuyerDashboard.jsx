@@ -39,7 +39,7 @@ import { ShoppingBag, DollarSign, Truck, Heart, ChevronRight, Bell, Search } fro
 const BuyerDashboard = () => {
   const stats = [
     { title: "Recent Purchases", value: "No recent purchases", icon: ShoppingBag, color: "bg-blue-500" },
-    { title: "Total Amount Spent", value: "$0", icon: DollarSign, color: "bg-green-500" },
+    { title: "Total Amount Spent", value: "KES 0", icon: DollarSign, color: "bg-green-500" },
     { title: "Pending Deliveries", value: "None", icon: Truck, color: "bg-yellow-500" },
     { title: "Favorite Products", value: "No favorite products", icon: Heart, color: "bg-red-500" },
   ];

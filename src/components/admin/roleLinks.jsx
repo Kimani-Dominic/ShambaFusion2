@@ -13,47 +13,48 @@ import Analytics from "./Analytics";
 import Shipment from "./VendorShipmentManagement";
 import AIInsights from "./AI-Insights";
 import PestControl from "./PestControl";
-import { LogOut } from "lucide-react";
 import Logout from "./Logout";
 import DashboardLanding from "./Landing";
 
+import { Home, LayoutDashboard, Package, ShoppingCart, BarChart2, Lightbulb, Bug, CreditCard, MessageSquare, Megaphone, Truck, Settings, LogOut, Store, Heart, AlertTriangle, Box } from 'lucide-react';
+
 const roleLinks = {
-    seller: [
-      { name: 'Landing', path: '/', element: <DashboardLanding />},
-      { name: 'Dashboard', path: 'dashboard', element: <Dashboard /> },
-      { name: 'Manage Products', path: 'products', element: <ProductManagement /> },
-      { name: 'Orders', path: 'orders', element: <SellerOrderManagement /> },
-      { name: 'Analytics', path: 'analytics', element: <Analytics /> },
-      { name: 'AI Insights', path: 'ai-insights', element: <AIInsights /> },
-      { name: 'Pest Control', path: 'pest-control', element: <PestControl />},
-      { name: 'Payments', path: 'payments', element: <PaymentManagement /> },
-      { name: 'Reviews and Feedback', path: 'reviews', element: <ReviewsFeedbacks /> },
-      { name: 'Marketing Tools', path: 'marketing', element: <MarketingTools /> },
-      { name: 'Logistics', path: 'logistics', element: <Logistics /> },
-      { name: 'Profile Settings', path: 'profile-settings', element: <ProfileManagement /> },
-      {name: 'Logout', path: 'logout', element: <Logout />}
-    ],
-    buyer: [
-      { name: 'Landing', path: '/', element: <DashboardLanding />},
-      { name: 'Dashboard', path: 'dashboard', element: <Dashboard /> },
-      { name: 'Browse Products', path: '/market', element: null },
-      { name: 'View Orders', path: 'orders', element: <OrderManagement /> },
-      { name: 'Payments', path: 'favorites', element: <PaymentMethods /> },
-      { name: 'Analytics', path: 'analytics', element: <Analytics /> },
-      { name: 'Disputes', path: 'disputes', element: <Disputes /> },
-      { name: 'Profile Settings', path: 'profile-settings', element: <ProfileManagement /> },
-      {name: 'Logout', path: 'logout', element: <Logout />}
-    ],
-    vendor: [
-      { name: 'Landing', path: '/', element: <DashboardLanding />},
-      { name: 'Dashboard', path: 'dashboard', element: <Dashboard /> },
-      { name: 'Manage Logistics', path: 'logistics', element: <Logistics /> },
-      { name: 'View Shipments', path: 'shipments', element: <Shipment /> },
-      { name: 'Payments', path: 'payments', element: <PaymentManagement /> },
-      { name: 'Analytics', path: 'analytics', element: <Analytics /> },
-      { name: 'Profile Settings', path: 'profile-settings', element: <ProfileManagement /> },
-      {name: 'Logout', path: 'logout', element: <Logout />}
-    ],
-}
+  seller: [
+    { name: 'Landing', path: '/', element: <DashboardLanding />, icon: Home },
+    { name: 'Dashboard', path: 'dashboard', element: <Dashboard />, icon: LayoutDashboard },
+    { name: 'Manage Products', path: 'products', element: <ProductManagement />, icon: Package },
+    { name: 'Orders', path: 'orders', element: <SellerOrderManagement />, icon: ShoppingCart },
+    { name: 'Analytics', path: 'analytics', element: <Analytics />, icon: BarChart2 },
+    { name: 'AI Insights', path: 'ai-insights', element: <AIInsights />, icon: Lightbulb },
+    { name: 'Pest Control', path: 'pest-control', element: <PestControl />, icon: Bug },
+    { name: 'Payments', path: 'payments', element: <PaymentManagement />, icon: CreditCard },
+    { name: 'Reviews and Feedback', path: 'reviews', element: <ReviewsFeedbacks />, icon: MessageSquare },
+    { name: 'Marketing Tools', path: 'marketing', element: <MarketingTools />, icon: Megaphone },
+    { name: 'Logistics', path: 'logistics', element: <Logistics />, icon: Truck },
+    { name: 'Profile Settings', path: 'profile-settings', element: <ProfileManagement />, icon: Settings },
+    { name: 'Logout', path: 'logout', element: <Logout />, icon: LogOut }
+  ],
+  buyer: [
+    { name: 'Landing', path: '/', element: <DashboardLanding />, icon: Home },
+    { name: 'Dashboard', path: 'dashboard', element: <Dashboard />, icon: LayoutDashboard },
+    { name: 'Browse Products', path: '/market', element: null, icon: Store },
+    { name: 'View Orders', path: 'orders', element: <OrderManagement />, icon: ShoppingCart },
+    { name: 'Payments', path: 'payments', element: <PaymentMethods />, icon: Heart },
+    { name: 'Analytics', path: 'analytics', element: <Analytics />, icon: BarChart2 },
+    { name: 'Disputes', path: 'disputes', element: <Disputes />, icon: AlertTriangle },
+    { name: 'Profile Settings', path: 'profile-settings', element: <ProfileManagement />, icon: Settings },
+    { name: 'Logout', path: 'logout', element: <Logout />, icon: LogOut }
+  ],
+  vendor: [
+    { name: 'Landing', path: '/', element: <DashboardLanding />, icon: Home },
+    { name: 'Dashboard', path: 'dashboard', element: <Dashboard />, icon: LayoutDashboard },
+    { name: 'Manage Logistics', path: 'logistics', element: <Logistics />, icon: Truck },
+    { name: 'View Shipments', path: 'shipments', element: <Shipment />, icon: Box },
+    { name: 'Payments', path: 'payments', element: <PaymentManagement />, icon: CreditCard },
+    { name: 'Analytics', path: 'analytics', element: <Analytics />, icon: BarChart2 },
+    { name: 'Profile Settings', path: 'profile-settings', element: <ProfileManagement />, icon: Settings },
+    { name: 'Logout', path: 'logout', element: <Logout />, icon: LogOut }
+  ],
+};
 
 export default roleLinks;

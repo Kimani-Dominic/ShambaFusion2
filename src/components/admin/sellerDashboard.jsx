@@ -46,7 +46,7 @@ const SellerDashboard = () => {
             <DollarSign className="text-green-500 w-6 h-6" />
             <span className="text-gray-700 font-medium">Total Sales:</span>
           </div>
-          <span className="text-gray-900 font-bold text-xl">$0</span>
+          <span className="text-gray-900 font-bold text-xl">KES 0</span>
         </li>
         <li className="flex justify-between items-center bg-white p-4 rounded-lg shadow transition-all duration-300 hover:shadow-md">
           <div className="flex items-center space-x-3">

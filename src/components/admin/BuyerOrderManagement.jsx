@@ -138,7 +138,7 @@ const OrderManagement = () => {
                     {order.status}
                   </Badge>
                 </TableCell>
-                <TableCell className="text-right">${order.totalAmount}</TableCell>
+                <TableCell className="text-right">KES {order.totalAmount}</TableCell>
                 <TableCell>
                   <div className="flex space-x-2">
                     <Dialog>

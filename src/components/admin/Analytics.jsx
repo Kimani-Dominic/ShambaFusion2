@@ -61,9 +61,9 @@ const Analytics = () => {
   const renderBuyerAnalytics = () => (
     <>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <StatCard title="Total Purchases" value="$1,200" icon={DollarSign} />
-        <StatCard title="Average Purchase Value" value="$150" icon={ShoppingBag} />
-        <StatCard title="Purchase Frequency" value="2.5/week" icon={TrendingUp} />
+        <StatCard title="Total Purchases" value="KES 1,200,000" icon={DollarSign} />
+        <StatCard title="Average Purchase Value" value="KES 450,000" icon={ShoppingBag} />
+        <StatCard title="Purchase Frequency" value="120/week" icon={TrendingUp} />
         <StatCard title="Unique Products Bought" value="15" icon={BarChart2} />
       </div>
       <div className="grid gap-4 md:grid-cols-2 mt-4">
@@ -84,9 +84,9 @@ const Analytics = () => {
   const renderSellerAnalytics = () => (
     <>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
-        <StatCard title="Total Sales" value="$3,200" icon={DollarSign} />
+        <StatCard title="Total Sales" value="KES 3,200,000" icon={DollarSign} />
         <StatCard title="Products Sold" value="45" icon={ShoppingBag} />
-        <StatCard title="Average Order Value" value="$180" icon={TrendingUp} />
+        <StatCard title="Average Order Value" value="KES 180,000" icon={TrendingUp} />
         <StatCard title="Active Customers" value="28" icon={Users} />
       </div>
       <div className="grid gap-4 md:grid-cols-2 mt-4">
@@ -108,7 +108,7 @@ const Analytics = () => {
     <>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard title="Total Deliveries" value="75" icon={Truck} />
-        <StatCard title="Earnings" value="$1,800" icon={DollarSign} />
+        <StatCard title="Earnings" value="KES 180,000" icon={DollarSign} />
         <StatCard title="Average Delivery Time" value="2.3 hours" icon={TrendingUp} />
         <StatCard title="Customer Rating" value="4.8/5" icon={Users} />
       </div>

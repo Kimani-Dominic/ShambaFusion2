@@ -9,8 +9,8 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { AlertCircle, Sprout, Cloud, Bug, Droplet, Wheat, Warehouse, Truck } from 'lucide-react'
 
-const crops = ['Corn', 'Wheat', 'Rice', 'Soybeans', 'Potatoes'];
-const locations = ['Midwest USA', 'California', 'Texas', 'Florida', 'New York'];
+const crops = ['Heirloom Tomatoes', 'Plum Tomatoes', 'Grape', 'Organic Tomatoes'];
+const locations = ['Murang\'a', 'Sagana', 'Maragua', 'Kenol', 'Sagana'];
 
 const stages = [
   { id: 'preparation', name: 'Preparation', icon: Sprout },
@@ -54,7 +54,7 @@ const AIInsights = () => {
       <CardContent>
         <div className="grid gap-4 md:grid-cols-3 mb-6">
           <div>
-            <Label htmlFor="crop">Select Crop</Label>
+            <Label htmlFor="crop">Select Tomato Variant</Label>
             <Select value={selectedCrop} onValueChange={setSelectedCrop}>
               <SelectTrigger id="crop">
                 <SelectValue placeholder="Choose a crop" />
