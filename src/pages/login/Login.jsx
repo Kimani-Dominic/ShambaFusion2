@@ -15,7 +15,8 @@ const Login = () => {
     const { changeRole } = useRole();
     const { changeAuthState } = useAuth();
     const [formData, setFormData] = useState({
-        email: "",
+        // username: "",
+        username: "",
         password: ""
     });
     
@@ -49,7 +50,7 @@ const Login = () => {
                 changeAuthState(true);
                 navigate('/admin-panel');
             } else {
-                setErrorMessage("Invalid email or password. Please try again.");
+                setErrorMessage("Invalid username or password. Please try again.");
                 changeAuthState(false);
             }
         } catch (error) {
@@ -88,16 +89,16 @@ const Login = () => {
                         <CardContent>
                             <form onSubmit={handleSubmit} className="space-y-4">
                                 <div className="space-y-2">
-                                    <Label htmlFor="email">Email</Label>
+                                    <Label htmlFor="username">Username</Label>
                                     <div className="relative">
                                         <Mail className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
                                         <Input
-                                            id="email"
-                                            name="email"
-                                            type="email"
-                                            placeholder="Enter your email address"
+                                            id="username"
+                                            name="username"
+                                            type="username"
+                                            placeholder="Enter your username"
                                             className="pl-10"
-                                            value={formData.email}
+                                            value={formData.username}
                                             onChange={handleChange}
                                             required
                                         />

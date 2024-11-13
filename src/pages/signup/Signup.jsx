@@ -11,7 +11,8 @@ import { API_BASE_URL } from '../../apiConfig';
 
 const Signup = () => {
     const [formData, setFormData] = useState({
-        fullName: "",
+        username: "",
+        // fullName: "",
         email: "",
         phoneNumber: "",
         password: "",
@@ -87,7 +88,23 @@ const Signup = () => {
                         </CardHeader>
                         <CardContent>
                             <form onSubmit={handleSubmit} className="space-y-4">
-                                <div className="space-y-2">
+                            <div className="space-y-2">
+                                    <Label htmlFor="fullName">Full Name</Label>
+                                    <div className="relative">
+                                        <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
+                                        <Input
+                                            id="username"
+                                            name="username"
+                                            type="text"
+                                            placeholder="Enter your Full name"
+                                            className="pl-10"
+                                            value={formData.username}
+                                            onChange={handleChange}
+                                            required
+                                        />
+                                    </div>
+                                </div>
+                                {/* <div className="space-y-2">
                                     <Label htmlFor="fullName">Full Name</Label>
                                     <div className="relative">
                                         <User className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400" />
@@ -102,7 +119,7 @@ const Signup = () => {
                                             required
                                         />
                                     </div>
-                                </div>
+                                </div> */}
                                 <div className="space-y-2">
                                     <Label htmlFor="email">Email</Label>
                                     <div className="relative">
