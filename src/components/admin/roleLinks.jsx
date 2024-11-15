@@ -16,7 +16,8 @@ import PestControl from "./PestControl";
 import Logout from "./Logout";
 import DashboardLanding from "./Landing";
 
-import { Home, LayoutDashboard, Package, ShoppingCart, BarChart2, Lightbulb, Bug, CreditCard, MessageSquare, Megaphone, Truck, Settings, LogOut, Store, Heart, AlertTriangle, Box } from 'lucide-react';
+import { Home, LayoutDashboard, Package, ShoppingCart, BarChart2, Lightbulb, Bug, CreditCard, MessageSquare, Megaphone, Truck, Settings, LogOut, Store, Heart, AlertTriangle, Box, ChartNoAxesCombined } from 'lucide-react';
+import TomatoPricePredictor from "./PricePrediction";
 
 const roleLinks = {
   seller: [
@@ -25,6 +26,7 @@ const roleLinks = {
     { name: 'Manage Products', path: 'products', element: <ProductManagement />, icon: Package },
     { name: 'Orders', path: 'orders', element: <SellerOrderManagement />, icon: ShoppingCart },
     { name: 'Analytics', path: 'analytics', element: <Analytics />, icon: BarChart2 },
+    { name: 'Price prediction', path: 'price-prediction', element: <TomatoPricePredictor /> , icon: ChartNoAxesCombined },
     { name: 'AI Insights', path: 'ai-insights', element: <AIInsights />, icon: Lightbulb },
     { name: 'Pest Control', path: 'pest-control', element: <PestControl />, icon: Bug },
     { name: 'Payments', path: 'payments', element: <PaymentManagement />, icon: CreditCard },
@@ -40,6 +42,7 @@ const roleLinks = {
     { name: 'Browse Products', path: '/market', element: null, icon: Store },
     { name: 'View Orders', path: 'orders', element: <OrderManagement />, icon: ShoppingCart },
     { name: 'Payments', path: 'payments', element: <PaymentMethods />, icon: Heart },
+    { name: 'Payments', path: 'payments', element: <PaymentManagement />, icon: CreditCard },
     { name: 'Analytics', path: 'analytics', element: <Analytics />, icon: BarChart2 },
     { name: 'Disputes', path: 'disputes', element: <Disputes />, icon: AlertTriangle },
     { name: 'Profile Settings', path: 'profile-settings', element: <ProfileManagement />, icon: Settings },

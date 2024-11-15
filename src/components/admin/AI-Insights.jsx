@@ -33,14 +33,17 @@ export default function AIInsights() {
 
   const fetchExistingInsights = async () => {
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/insights/`,{
+      const response = await fetch(`http://127.0.0.1:8000/api/farm_insights/all/`,{
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         },
       })
 
       if (!response.ok) {
+        console.log(response);
+        
         throw new Error('Failed to fetch existing insights')
       }
 
@@ -66,19 +69,22 @@ export default function AIInsights() {
 
    
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/insights/`, {
-        method: 'POST',
+      const response = await fetch(`http://127.0.0.1:8000/api/farm_insights/all/`, {
+        method: 'GET',
         headers: {
           'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
         },
-        body: JSON.stringify({
-          crop_type: selectedCrop,
-          crop_stage: selectedCropStage,
-        }),
+        // body: JSON.stringify({
+        //   crop_type: selectedCrop,
+        //   crop_stage: selectedCropStage,
+        // }),
       })
 
       if (!response.ok) {
-        throw new Error('Failed to generate insights')
+        console.log(response);
+        throw new Error('Failed to generate insights');
+        
       }
 
       const data = await response.json()
