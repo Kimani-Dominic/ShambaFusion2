@@ -103,6 +103,7 @@ export default function PestControl() {
       }
 
       const data = await response.json()
+      console.log(data)
       setFeedback({
         disease: data.symptoms,
         treatment: data.treatment,

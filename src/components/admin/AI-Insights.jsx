@@ -27,75 +27,89 @@ export default function AIInsights() {
   const [insights, setInsights] = useState('')
   const [isLoading, setIsLoading] = useState(false)
 
-  useEffect(() => {
-    fetchExistingInsights()
-  }, [])
+  // useEffect(() => {
+  //   fetchExistingInsights()
+  // }, [])
 
-  const fetchExistingInsights = async () => {
-    try {
-      const response = await fetch(`http://127.0.0.1:8000/api/farm_insights/all/`,{
-        method: 'GET',
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
-        },
-      })
+  // const fetchExistingInsights = async () => {
+  //   try {
+  //     const response = await fetch(`http://127.0.0.1:8000/api/insights/`,{
+  //       method: 'GET',
+  //       headers: {
+  //         'Content-Type': 'application/json',
+  //         'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+  //       },
+  //     })
 
-      if (!response.ok) {
-        console.log(response);
+  //     if (!response.ok) {
+  //       console.log(response);
         
-        throw new Error('Failed to fetch existing insights')
-      }
+  //       throw new Error('Failed to fetch existing insights')
+  //     }
 
-      const data = await response.json()
-      if (data.length > 0) {
-        setSelectedCrop(data[0].crop_type)
-        setSelectedCropStage(data[0].crop_stage)
-        setInsights(data[0].insights)
-      }
-    } catch (error) {
-      console.error('Error fetching existing insights:', error)
-    }
-  }
+  //     const data = await response.json()
+  //     if (data.length > 0) {
+  //       setSelectedCrop(data[0].crop_type)
+  //       setSelectedCropStage(data[0].crop_stage)
+  //       setInsights(data[0].insights)
+  //     }
+  //   } catch (error) {
+  //     console.error('Error fetching existing insights:', error)
+  //   }
+  // }
 
   const generateInsights = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (!selectedCrop || !selectedCropStage) {
-      alert('Please select both crop type and crop stage')
-      return
+      alert('Please select both crop type and crop stage');
+      return;
     }
-
-    setIsLoading(true)
-
-   
+  
+    setIsLoading(true);
+  
     try {
-      const response = await fetch(`http://127.0.0.1:8000/api/farm_insights/all/`, {
+      const response = await fetch(`http://127.0.0.1:8000/api/insights/`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('access_token')}`
+          'Authorization': `Bearer ${localStorage.getItem('access_token')}`,
         },
-        // body: JSON.stringify({
-        //   crop_type: selectedCrop,
-        //   crop_stage: selectedCropStage,
-        // }),
-      })
-
+      });
+  
       if (!response.ok) {
         console.log(response);
         throw new Error('Failed to generate insights');
-        
       }
-
-      const data = await response.json()
-      setInsights(data.insights)
+  
+      const data = await response.json();
+  
+      // Check if data is an array and filter based on selected crop and stage
+      if (Array.isArray(data) && data.length > 0) {
+        const filteredInsights = data
+          .filter(
+            (item) =>
+              item.crop_type.toLowerCase() === selectedCrop.toLowerCase() &&
+              item.crop_stage.toLowerCase() === selectedCropStage.toLowerCase()
+          )
+          .map((item) => item.insights);
+  
+        // If no matching insights are found, display a relevant message
+        if (filteredInsights.length > 0) {
+          setInsights(filteredInsights.join('\n\n'));
+        } else {
+          setInsights('No insights found for the selected crop and stage.');
+        }
+      } else {
+        setInsights('No insights available.');
+      }
     } catch (error) {
-      console.error('Error generating insights:', error)
-      setInsights('Failed to generate insights. Please try again.')
+      console.error('Error generating insights:', error);
+      setInsights('Failed to generate insights. Please try again.');
     } finally {
-      setIsLoading(false)
+      setIsLoading(false);
     }
-  }
+  };
+  
 
   return (
     <Card className="w-full max-w-2xl mx-auto">

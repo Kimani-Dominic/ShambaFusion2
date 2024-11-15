@@ -155,8 +155,8 @@ const Logistics = () => {
           <CardDescription>Overview of orders awaiting delivery</CardDescription>
         </CardHeader>
         <CardContent>
-          <DeliveryItem id="1234" status="Awaiting Pickup" location="Warehouse, Seattle" />
-          <DeliveryItem id="5678" status="Out for Delivery" location="En route to Los Angeles" />
+          <DeliveryItem id="1234" status="Awaiting Pickup" location="Kagio Market, Kirinyaga" />
+          <DeliveryItem id="5678" status="Out for Delivery" location="En route to Murang'a" />
         </CardContent>
       </Card>
       <Card>
