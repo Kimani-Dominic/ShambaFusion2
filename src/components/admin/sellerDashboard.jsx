@@ -35,6 +35,7 @@
 
 import React from 'react';
 import { DollarSign, ShoppingCart, Package, TrendingUp } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const SellerDashboard = () => {
   return (
@@ -67,13 +68,13 @@ const SellerDashboard = () => {
             <TrendingUp className="text-red-500 w-6 h-6" />
             <span className="text-gray-700 font-medium">General Sales Chart:</span>
           </div>
-          <span className="text-gray-900 font-bold text-xl">Chart Data Placeholder</span>
+          <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+            <Link to="/admin-panel/analytics">View sales analytics</Link>
+        </button>
         </li>
       </ul>
       <div className="mt-8 text-center">
-        <button className="bg-green-600 hover:bg-green-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-          View Sales Analytics
-        </button>
+        
       </div>
     </div>
   );

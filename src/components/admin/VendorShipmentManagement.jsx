@@ -14,9 +14,9 @@ import { Line, LineChart, ResponsiveContainer, Tooltip, XAxis, YAxis } from "rec
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
 
 const initialShipments = [
-  { id: 1, orderId: "ORD-001", status: "In Transit", destination: "New York, NY", estimatedDelivery: "2024-10-15" },
-  { id: 2, orderId: "ORD-002", status: "Delivered", destination: "Los Angeles, CA", estimatedDelivery: "2024-10-10" },
-  { id: 3, orderId: "ORD-003", status: "Preparing", destination: "Chicago, IL", estimatedDelivery: "2024-10-20" },
+  { id: 1, orderId: "ORDER-001", status: "In Transit", destination: "Sagana", estimatedDelivery: "2024-10-15" },
+  { id: 2, orderId: "ORDER-002", status: "Delivered", destination: "Nyeri", estimatedDelivery: "2024-10-10" },
+  { id: 3, orderId: "ORDER-003", status: "Preparing", destination: "Kiambu", estimatedDelivery: "2024-10-20" },
 ];
 
 const performanceData = [

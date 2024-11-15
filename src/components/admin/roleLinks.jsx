@@ -40,8 +40,8 @@ const roleLinks = {
     { name: 'Landing', path: '/', element: <DashboardLanding />, icon: Home },
     { name: 'Dashboard', path: 'dashboard', element: <Dashboard />, icon: LayoutDashboard },
     { name: 'Browse Products', path: '/market', element: null, icon: Store },
+    { name: 'Price prediction', path: 'price-prediction', element: <TomatoPricePredictor /> , icon: ChartNoAxesCombined },
     { name: 'View Orders', path: 'orders', element: <OrderManagement />, icon: ShoppingCart },
-    { name: 'Payments', path: 'payments', element: <PaymentMethods />, icon: Heart },
     { name: 'Payments', path: 'payments', element: <PaymentManagement />, icon: CreditCard },
     { name: 'Analytics', path: 'analytics', element: <Analytics />, icon: BarChart2 },
     { name: 'Disputes', path: 'disputes', element: <Disputes />, icon: AlertTriangle },
@@ -51,7 +51,6 @@ const roleLinks = {
   vendor: [
     { name: 'Landing', path: '/', element: <DashboardLanding />, icon: Home },
     { name: 'Dashboard', path: 'dashboard', element: <Dashboard />, icon: LayoutDashboard },
-    { name: 'Manage Logistics', path: 'logistics', element: <Logistics />, icon: Truck },
     { name: 'View Shipments', path: 'shipments', element: <Shipment />, icon: Box },
     { name: 'Payments', path: 'payments', element: <PaymentManagement />, icon: CreditCard },
     { name: 'Analytics', path: 'analytics', element: <Analytics />, icon: BarChart2 },

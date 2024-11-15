@@ -90,12 +90,12 @@ const BuyerDashboard = () => {
         </div>
       </div>
       
-      <div className="mt-8 flex justify-center">
+      {/* <div className="mt-8 flex justify-center">
         <button className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-full transition-colors duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 flex items-center space-x-2">
           <span>View More Details</span>
           <ChevronRight className="w-5 h-5" />
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

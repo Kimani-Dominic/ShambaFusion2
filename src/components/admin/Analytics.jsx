@@ -2,8 +2,8 @@ import React from 'react';
 import { useRole } from '../../hooks/useRole';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Line, Bar, Pie } from "recharts"
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart"
+import { ResponsiveContainer, BarChart, Bar, LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, PieChart, Pie, Cell } from 'recharts';
 import { DollarSign, ShoppingBag, TrendingUp, Truck, Users, BarChart2 } from 'lucide-react';
 const Analytics = () => {
   // const { role } = useRole();
@@ -34,6 +34,8 @@ const Analytics = () => {
     { name: 'Category D', value: 280 },
   ];
 
+  const COLORS = ['#0088FE', '#00C49F', '#FFBB28', '#FF8042', '#8884D8'];
+
   const StatCard = ({ title, value, icon: Icon }) => (
     <Card>
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
@@ -59,7 +61,8 @@ const Analytics = () => {
   );
 
   const renderBuyerAnalytics = () => (
-    <>
+    <div className="p-6">
+      <h1 className="text-3xl font-bold mb-6">Buyer Analytics</h1>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard title="Total Purchases" value="KES 1,200,000" icon={DollarSign} />
         <StatCard title="Average Purchase Value" value="KES 450,000" icon={ShoppingBag} />
@@ -69,20 +72,48 @@ const Analytics = () => {
       <div className="grid gap-4 md:grid-cols-2 mt-4">
         <ChartCard title="Purchases Over Time" description="Monthly purchase trends">
           <ChartContainer config={{ value: { label: "Value", color: "hsl(var(--chart-1))" } }} className="h-[300px]">
-            <Line data={lineChartData} />
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={lineChartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Line type="monotone" dataKey="value" stroke="hsl(var(--chart-1))" strokeWidth={2} />
+              </LineChart>
+            </ResponsiveContainer>
           </ChartContainer>
         </ChartCard>
         <ChartCard title="Spending Distribution" description="Spending across categories">
           <ChartContainer config={{ value: { label: "Value", color: "hsl(var(--chart-1))" } }} className="h-[300px]">
-            <Pie data={pieChartData} />
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={pieChartData}
+                  cx="50%"
+                  cy="50%"
+                  labelLine={false}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {pieChartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
           </ChartContainer>
         </ChartCard>
       </div>
-    </>
+    </div>
   );
 
   const renderSellerAnalytics = () => (
     <>
+      <div className="p-6">
+      <h1 className="text-3xl font-bold mb-6">Seller Analytics Dashboard</h1>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard title="Total Sales" value="KES 3,200,000" icon={DollarSign} />
         <StatCard title="Products Sold" value="45" icon={ShoppingBag} />
@@ -92,20 +123,64 @@ const Analytics = () => {
       <div className="grid gap-4 md:grid-cols-2 mt-4">
         <ChartCard title="Product Performance" description="Sales by product">
           <ChartContainer config={{ value: { label: "Value", color: "hsl(var(--chart-1))" } }} className="h-[300px]">
-            <Bar data={barChartData} />
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={barChartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Bar dataKey="value" fill="hsl(var(--chart-1))" />
+              </BarChart>
+            </ResponsiveContainer>
           </ChartContainer>
         </ChartCard>
         <ChartCard title="Sales Over Time" description="Monthly sales trends">
           <ChartContainer config={{ value: { label: "Value", color: "hsl(var(--chart-1))" } }} className="h-[300px]">
-            <Line data={lineChartData} />
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={lineChartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Line type="monotone" dataKey="value" stroke="hsl(var(--chart-1))" strokeWidth={2} />
+              </LineChart>
+            </ResponsiveContainer>
           </ChartContainer>
         </ChartCard>
       </div>
+      <div className="mt-4">
+        <ChartCard title="Sales by Category" description="Distribution of sales across categories">
+          <ChartContainer config={{ value: { label: "Value", color: "hsl(var(--chart-1))" } }} className="h-[300px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={pieChartData}
+                  cx="50%"
+                  cy="50%"
+                  labelLine={false}
+                  outerRadius={80}
+                  fill="#8884d8"
+                  dataKey="value"
+                >
+                  {pieChartData.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
+                  ))}
+                </Pie>
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Legend />
+              </PieChart>
+            </ResponsiveContainer>
+          </ChartContainer>
+        </ChartCard>
+      </div>
+    </div>
     </>
   );
 
   const renderVendorAnalytics = () => (
     <>
+      <div className="p-6">
+      <h1 className="text-3xl font-bold mb-6">Vendor Analytics Dashboard</h1>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <StatCard title="Total Deliveries" value="75" icon={Truck} />
         <StatCard title="Earnings" value="KES 180,000" icon={DollarSign} />
@@ -114,16 +189,33 @@ const Analytics = () => {
       </div>
       <div className="grid gap-4 md:grid-cols-2 mt-4">
         <ChartCard title="Delivery Performance Over Time" description="Monthly delivery trends">
-          <ChartContainer config={{ value: { label: "Value", color: "hsl(var(--chart-1))" } }} className="h-[300px]">
-            <Line data={lineChartData} />
+          <ChartContainer config={{ value: { label: "Deliveries", color: "hsl(var(--chart-1))" } }} className="h-[300px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={lineChartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Line type="monotone" dataKey="value" stroke="hsl(var(--chart-1))" strokeWidth={2} />
+              </LineChart>
+            </ResponsiveContainer>
           </ChartContainer>
         </ChartCard>
         <ChartCard title="Earnings Trend" description="Monthly earnings">
-          <ChartContainer config={{ value: { label: "Value", color: "hsl(var(--chart-1))" } }} className="h-[300px]">
-            <Bar data={barChartData} />
+          <ChartContainer config={{ value: { label: "Earnings (KES)", color: "hsl(var(--chart-1))" } }} className="h-[300px]">
+            <ResponsiveContainer width="100%" height="100%">
+              <BarChart data={barChartData}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="name" />
+                <YAxis />
+                <ChartTooltip content={<ChartTooltipContent />} />
+                <Bar dataKey="value" fill="hsl(var(--chart-1))" />
+              </BarChart>
+            </ResponsiveContainer>
           </ChartContainer>
         </ChartCard>
       </div>
+    </div>
     </>
   );
 
