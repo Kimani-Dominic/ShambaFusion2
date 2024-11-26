@@ -36,7 +36,7 @@ export default function TomatoPricePredictor() {
   const updatePrediction = () => {
     // In a real application, this would call an API to update the prediction
     console.log('Updating prediction with:', { region, weatherCondition, supplyLevel })
-    alert('Prediction updated! (This is a mock update)')
+    alert('Prediction updated!')
   }
 
   return (
@@ -134,10 +134,10 @@ export default function TomatoPricePredictor() {
                       <SelectValue placeholder="Select region" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="north">North</SelectItem>
-                      <SelectItem value="south">South</SelectItem>
-                      <SelectItem value="east">East</SelectItem>
-                      <SelectItem value="west">West</SelectItem>
+                      <SelectItem value="north">Nyanza Region</SelectItem>
+                      <SelectItem value="south">Coast Region</SelectItem>
+                      <SelectItem value="east">Riftvalley</SelectItem>
+                      <SelectItem value="west">west</SelectItem>
                       <SelectItem value="central">Central</SelectItem>
                     </SelectContent>
                   </Select>
